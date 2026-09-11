@@ -1,65 +1,108 @@
 "use client";
 
-import React from "react";
-import { cn } from "@/utils/utils";
+import React, { ReactNode } from "react";
+import { cn } from "@/lib/utils";
+import { Magnetic } from "../animations/Magnetic";
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "outline" | "ghost" | "danger";
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
+  variant?: "primary" | "secondary" | "outline" | "ghost" | "cyan-glow";
   size?: "sm" | "md" | "lg";
+  isMagnetic?: boolean;
   fullWidth?: boolean;
   loading?: boolean;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
+  className?: string;
+  asChild?: boolean;
+  href?: string;
+  target?: string;
+  rel?: string;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      variant = "primary",
-      size = "md",
-      fullWidth = false,
-      loading = false,
-      className,
-      children,
-      disabled,
-      ...props
-    },
-    ref,
-  ) => {
-    const base =
-      "inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-500 disabled:opacity-50 disabled:cursor-not-allowed";
+export function Button({
+  children,
+  variant = "primary",
+  size = "md",
+  isMagnetic = false,
+  fullWidth = false,
+  loading = false,
+  leftIcon,
+  rightIcon,
+  className = "",
+  href,
+  target,
+  rel,
+  disabled,
+  ...props
+}: ButtonProps) {
+  const baseStyles =
+    "inline-flex items-center justify-center font-medium transition-all duration-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/40 disabled:opacity-50 disabled:pointer-events-none group select-none";
 
-    const variants = {
-      primary:   "bg-brand-600 text-white hover:bg-brand-700 active:bg-brand-800",
-      secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200 active:bg-gray-300",
-      outline:   "border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 active:bg-gray-100",
-      ghost:     "bg-transparent text-gray-600 hover:bg-gray-100 active:bg-gray-200",
-      danger:    "bg-red-600 text-white hover:bg-red-700 active:bg-red-800",
-    };
+  const sizeStyles = {
+    sm: "text-xs px-3.5 py-2 gap-1.5",
+    md: "text-sm px-5 py-2.5 gap-2",
+    lg: "text-base px-7 py-3.5 gap-2.5 font-semibold",
+  };
 
-    const sizes = {
-      sm: "px-3 py-1.5 text-xs h-8",
-      md: "px-4 py-2 text-sm h-10",
-      lg: "px-5 py-3 text-sm h-12",
-    };
+  const variantStyles = {
+    primary:
+      "bg-white text-black hover:bg-neutral-200 hover:shadow-[0_0_25px_rgba(255,255,255,0.2)] active:scale-[0.98]",
+    "cyan-glow":
+      "bg-accent text-dark-bg font-semibold hover:bg-accent-hover shadow-[0_0_20px_rgba(0,240,255,0.3)] hover:shadow-[0_0_30px_rgba(0,240,255,0.5)] active:scale-[0.98]",
+    secondary:
+      "bg-[#171720] text-neutral-200 border border-white/10 hover:border-accent/40 hover:bg-[#1E1E2A] hover:text-white active:scale-[0.98]",
+    outline:
+      "border border-white/15 text-neutral-300 hover:border-white/40 hover:text-white bg-transparent active:scale-[0.98]",
+    ghost:
+      "text-neutral-400 hover:text-white hover:bg-white/5 active:scale-[0.98]",
+  };
 
-    return (
-      <button
-        ref={ref}
-        disabled={disabled || loading}
-        className={cn(base, variants[variant], sizes[size], fullWidth && "w-full", className)}
-        {...props}
+  const buttonContent = (
+    <>
+      {loading ? (
+        <span className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
+      ) : (
+        leftIcon && <span className="transition-transform group-hover:-translate-x-0.5">{leftIcon}</span>
+      )}
+      <span>{children}</span>
+      {!loading && rightIcon && (
+        <span className="transition-transform group-hover:translate-x-0.5">{rightIcon}</span>
+      )}
+    </>
+  );
+
+  const classes = cn(
+    baseStyles,
+    sizeStyles[size],
+    variantStyles[variant],
+    fullWidth && "w-full",
+    className
+  );
+
+  if (href) {
+    const isExternal = href.startsWith("http") || target === "_blank";
+    const linkElement = (
+      <a
+        href={href}
+        className={classes}
+        target={target || (isExternal ? "_blank" : undefined)}
+        rel={rel || (isExternal ? "noopener noreferrer" : undefined)}
       >
-        {loading ? (
-          <>
-            <span className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
-            {children}
-          </>
-        ) : (
-          children
-        )}
-      </button>
+        {buttonContent}
+      </a>
     );
-  },
-);
 
-Button.displayName = "Button";
+    return isMagnetic ? <Magnetic strength={0.2}>{linkElement}</Magnetic> : linkElement;
+  }
+
+  const btn = (
+    <button className={classes} disabled={disabled || loading} {...props}>
+      {buttonContent}
+    </button>
+  );
+
+  return isMagnetic ? <Magnetic strength={0.2}>{btn}</Magnetic> : btn;
+}
+
 export default Button;

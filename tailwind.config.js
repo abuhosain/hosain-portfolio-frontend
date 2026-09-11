@@ -6,78 +6,52 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        /* === Brand — swap these to match the project === */
-        brand: {
-          50:  "#eef2ff",
-          100: "#e0e7ff",
-          200: "#c7d2fe",
-          300: "#a5b4fc",
-          400: "#818cf8",
-          500: "#6366f1",
-          600: "#4f46e5",
-          700: "#4338ca",
-          800: "#3730a3",
-          900: "#312e81",
-          950: "#1e1b4b",
+        dark: {
+          bg: "#0A0A0D",
+          card: "#111116",
+          surface: "#17171F",
+          border: "rgba(255, 255, 255, 0.08)",
+          borderHover: "rgba(255, 255, 255, 0.18)",
+          subtle: "#1F1F2B",
         },
-        /* Neutral grays */
-        gray: {
-          50:  "#fafafa",
-          100: "#f5f5f5",
-          200: "#e5e5e5",
-          300: "#d4d4d4",
-          400: "#a3a3a3",
-          500: "#737373",
-          600: "#525252",
-          700: "#404040",
-          800: "#262626",
-          900: "#171717",
-          950: "#0a0a0a",
+        accent: {
+          DEFAULT: "rgb(var(--accent-rgb) / <alpha-value>)",
+          glow: "var(--accent-glow)",
+          hover: "rgb(var(--accent-rgb) / <alpha-value>)",
+          muted: "rgb(var(--accent-rgb) / <alpha-value>)",
+          dark: "rgb(var(--accent-rgb) / <alpha-value>)",
         },
-        /* Semantic */
-        success: "#22c55e",
-        warning: "#f59e0b",
-        error:   "#ef4444",
-        info:    "#3b82f6",
+        secondary: {
+          DEFAULT: "#8B5CF6",
+          glow: "rgba(139, 92, 246, 0.25)",
+        },
+        emerald: {
+          telemetry: "#10B981",
+        },
       },
       fontFamily: {
         sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
-      },
-      spacing: {
-        18: "4.5rem",
-        22: "5.5rem",
-        26: "6.5rem",
-        30: "7.5rem",
-      },
-      maxWidth: {
-        container: "1280px",
+        display: ["var(--font-geist)", "var(--font-inter)", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
       },
       animation: {
-        fadeInUp:    "fadeInUp 0.6s ease-out forwards",
-        slideInLeft: "slideInLeft 0.6s ease-out forwards",
-        slideInRight:"slideInRight 0.6s ease-out forwards",
-        shimmer:     "shimmer 1.8s infinite",
+        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "glow-line": "glowLine 3s ease-in-out infinite alternate",
+        "spin-slow": "spin 20s linear infinite",
       },
       keyframes: {
-        fadeInUp: {
-          from: { opacity: "0", transform: "translateY(24px)" },
-          to:   { opacity: "1", transform: "translateY(0)" },
+        glowLine: {
+          "0%": { opacity: "0.3", filter: "drop-shadow(0 0 2px #00F0FF)" },
+          "100%": { opacity: "1", filter: "drop-shadow(0 0 10px #00F0FF)" },
         },
-        slideInLeft: {
-          from: { opacity: "0", transform: "translateX(-32px)" },
-          to:   { opacity: "1", transform: "translateX(0)" },
-        },
-        slideInRight: {
-          from: { opacity: "0", transform: "translateX(32px)" },
-          to:   { opacity: "1", transform: "translateX(0)" },
-        },
-        shimmer: {
-          "0%":   { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
-        },
+      },
+      backgroundImage: {
+        "grid-pattern": "radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)",
+        "radial-gradient": "radial-gradient(circle at 50% 50%, var(--tw-gradient-stops))",
       },
     },
   },
