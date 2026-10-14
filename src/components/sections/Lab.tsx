@@ -18,23 +18,20 @@ export function Lab() {
       case "Activity":
         return <Activity className="w-4 h-4 text-accent" />;
       case "Clock":
-        return <Clock className="w-4 h-4 text-purple-400" />;
+        return <Clock className="w-4 h-4 text-accent" />;
       case "Droplets":
-        return <Droplets className="w-4 h-4 text-cyan-400" />;
+        return <Droplets className="w-4 h-4 text-accent" />;
       case "Radio":
-        return <Radio className="w-4 h-4 text-emerald-400" />;
+        return <Radio className="w-4 h-4 text-accent" />;
       default:
         return <Zap className="w-4 h-4 text-accent" />;
     }
   };
 
   return (
-    <section id="lab" className="py-24 relative bg-[#07070A] border-t border-white/5 tech-dots overflow-hidden">
+    <section id="lab" className="py-24 relative bg-[#07080D] border-t border-white/[0.08] overflow-hidden">
       {/* 3D WebGL Circuit & Telemetry Network Canvas */}
       <LabCircuitCanvas />
-
-      {/* Background glow lines */}
-      <div className="absolute top-1/3 right-1/4 w-[600px] h-[400px] bg-emerald-500/[0.05] blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
         <SectionHeading

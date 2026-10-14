@@ -3,7 +3,10 @@ export interface ResumeData {
   title: string;
   location: string;
   email: string;
+  phone: string;
+  website: string;
   summary: string;
+  achievements: { title: string; organization: string }[];
   skills: { category: string; items: string[] }[];
   experience: {
     role: string;
@@ -14,63 +17,98 @@ export interface ResumeData {
   education: {
     degree: string;
     institution: string;
-    period: string;
+    period?: string;
   }[];
 }
 
 export const resumeData: ResumeData = {
   name: "Abu Hosain",
-  title: "Software Engineer · Full-Stack Developer · Founder",
-  location: "Dhaka, Bangladesh (UTC+06:00)",
-  email: "abuhosain.dev@gmail.com",
-  summary: "Multidisciplinary Software Engineer with comprehensive expertise in full-stack web architectures, Next.js, Node.js APIs, cloud deployments, and IoT hardware engineering (ESP32 microcontrollers). Proven track record of architecting and shipping mission-critical client software, scalable platforms, and connected physical prototypes.",
+  title: "Software Engineer · Branding · AI Automation · Founder of NeexG · Co-Founder of Oregent",
+  location: "Bangladesh (UTC+06:00)",
+  email: "abuhosainmin@gmail.com",
+  phone: "01319539510",
+  website: "abuhosain.dev",
+  summary: "Full-stack software engineer, founder of NeexG and co-founder of Oregent, building web apps, SaaS products and e-commerce platforms. Also specializing in branding, AI automation (n8n, Zapier), and video editing. Dual International Gold Medalist at IWC and I3C with a Diploma in Computer Science & Technology from Bogura Polytechnic Institute.",
+  achievements: [
+    {
+      title: "International Gold Medalist",
+      organization: "IWC (Innovation World Cup)",
+    },
+    {
+      title: "International Gold Medalist",
+      organization: "I3C (International Invention and Innovation Competition)",
+    },
+    {
+      title: "Founder & CEO",
+      organization: "NeexG (https://neexg.com)",
+    },
+    {
+      title: "Co-Founder",
+      organization: "Oregent (https://oregent.com)",
+    },
+  ],
   skills: [
     {
-      category: "Frontend",
-      items: ["React", "Next.js (App Router)", "TypeScript", "Tailwind CSS", "JavaScript (ES6+)", "Framer Motion", "Three.js", "HTML5/CSS3"],
+      category: "Full-Stack Development",
+      items: ["React", "Next.js", "Node.js", "Express.js", "TypeScript", "JavaScript", "MongoDB", "PostgreSQL", "Supabase", "Firebase"],
     },
     {
-      category: "Backend & Systems",
-      items: ["Node.js", "Express.js", "RESTful APIs", "Authentication (JWT, Cookies)", "Microservices", "Serverless Functions"],
+      category: "AI Automation & Workflows",
+      items: ["Zapier", "n8n", "API Integrations", "Webhooks", "Workflow Automation", "AI Agents & LLMs"],
     },
     {
-      category: "Databases",
-      items: ["PostgreSQL", "MongoDB", "Supabase", "Firebase Realtime DB", "Prisma ORM", "Redis"],
+      category: "Branding & Visual Direction",
+      items: ["Brand Strategy", "Visual Identity", "Brand Guidelines", "Social Media Branding", "Brand Voice"],
+    },
+    {
+      category: "Video Editing & Content",
+      items: ["Promo Videos", "Short-Form Content (Reels/Shorts)", "Brand Videos", "Motion Graphics"],
     },
     {
       category: "DevOps & Cloud",
-      items: ["AWS (EC2, S3)", "Vercel", "Linux / Ubuntu Server", "Nginx", "PM2", "Git / GitHub Actions"],
+      items: ["Docker", "AWS", "Vercel", "Linux / Ubuntu Server", "Git & CI/CD"],
     },
     {
-      category: "IoT & Hardware",
-      items: ["ESP32 Microcontroller", "FreeRTOS", "C++ / Arduino", "Sensor Telemetry (pH, Temp)", "Servo / Relay Control"],
+      category: "Hardware & IoT",
+      items: ["ESP32 / Embedded Systems", "C++ / Arduino", "Sensor Telemetry"],
     },
   ],
   experience: [
     {
-      role: "Lead Full-Stack Software Engineer",
-      organization: "Product & Platform Engineering",
-      period: "2024 – Present",
+      role: "Founder & CEO",
+      organization: "NeexG (neexg.com)",
+      period: "Present",
       bullets: [
-        "Architected and deployed scalable full-stack applications with Next.js App Router, TypeScript, and high-performance server APIs.",
-        "Engineered multi-store e-commerce systems, travel reservation engines with multi-partner API aggregations, and business management suites.",
-        "Optimized Web Vitals to achieve 98+ Lighthouse scores across enterprise web portals.",
+        "Founded and lead NeexG, building custom web applications, SaaS platforms, e-commerce storefronts, and AI automation solutions for clients in Bangladesh and abroad.",
+        "Architected multi-tenant SaaS engines, workflow automation pipelines (n8n & Zapier), and high-conversion e-commerce storefronts.",
+        "Delivered production systems including FlyKorun, Obiram, TypingBoss, eExam App, and Evanio AI.",
       ],
     },
     {
-      role: "Founder & Lead Hardware Architect",
-      organization: "SystomeX & The Lab",
-      period: "2025 – Present",
+      role: "Co-Founder",
+      organization: "Oregent (oregent.com)",
+      period: "Present",
       bullets: [
-        "Designed and implemented the SmartFishBreeder autonomous IoT ecosystem using ESP32, FreeRTOS, and Firebase Realtime Database.",
-        "Pioneered embedded hardware kits, automated aquaculture sensor loops, and web telemetry dashboards.",
+        "Co-founded Oregent, a modern fashion and sneaker e-commerce brand.",
+        "Directed end-to-end product architecture, e-commerce storefront engineering, brand identity, and customer experience.",
+        "Engineered mobile-first high-speed shopping flows and inventory integrations.",
+      ],
+    },
+    {
+      role: "Full-Stack Software Consultant",
+      organization: "Client Solutions & Production Systems",
+      period: "2023 – Present",
+      bullets: [
+        "Constructed high-speed web platforms with React, Next.js, Node.js, and relational / document databases.",
+        "Engineered responsive, accessible client interfaces adhering strictly to WCAG standards.",
+        "Automated business workflows via webhooks, n8n, and custom API microservices.",
       ],
     },
   ],
   education: [
     {
-      degree: "Bachelor of Science in Computer Science & Engineering",
-      institution: "University / Academic Institution",
+      degree: "Diploma in Computer Science and Technology (CST)",
+      institution: "Bogura Polytechnic Institute",
       period: "Completed",
     },
   ],

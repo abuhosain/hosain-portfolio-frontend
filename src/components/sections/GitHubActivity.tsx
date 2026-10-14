@@ -81,14 +81,14 @@ export function GitHubActivity() {
   }, []);
 
   const stats = [
-    { label: "Primary Language", value: "TypeScript / C++" },
-    { label: "Architecture Standard", value: "Strict Type Safety" },
-    { label: "Git Workflow", value: "Trunk-Based / CI" },
-    { label: "Open Source Mindset", value: "Active Builder" },
+    { label: "Primary Languages", value: "TypeScript & JavaScript" },
+    { label: "Venture", value: "NeexG (neexg.com)" },
+    { label: "Architecture", value: "React, Next.js & Node" },
+    { label: "Embedded Systems", value: "ESP32 & IoT" },
   ];
 
   return (
-    <section className="py-24 relative bg-[#09090D] border-t border-white/5 tech-dots overflow-hidden">
+    <section className="py-24 relative bg-[#07080D] border-t border-white/[0.08] overflow-hidden">
       <FloatingParticles count={20} />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">

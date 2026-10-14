@@ -69,7 +69,7 @@ export default function LoginPage() {
             onChange={handleChange}
             error={errors.email}
             leftIcon={<Mail className="w-4 h-4" />}
-            placeholder="you@example.com"
+            placeholder="name@domain.com"
           />
 
           <Input

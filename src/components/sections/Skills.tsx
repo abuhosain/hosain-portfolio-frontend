@@ -1,152 +1,123 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { skillsData } from "@/data/skills";
-import { soundFX } from "@/lib/sound";
-import { SectionHeading } from "../ui/SectionHeading";
-import { Card } from "../ui/Card";
-import { Badge } from "../ui/Badge";
-import { Reveal } from "../animations/Reveal";
-import { TiltCard } from "../animations/TiltCard";
-import { FloatingParticles } from "../animations/FloatingParticles";
-import { Code2, Server, Database, Cloud, Cpu, Wrench, Sparkles } from "lucide-react";
+import {
+  Code2,
+  Workflow,
+  BrainCircuit,
+  Video,
+  Palette,
+  Cloud,
+  Cpu,
+  ExternalLink,
+} from "lucide-react";
 
 export function Skills() {
-  const [activeCategoryId, setActiveCategoryId] = useState<string | null>(null);
-
-  const getCategoryIcon = (id: string) => {
+  const getGroupIcon = (id: string) => {
     switch (id) {
-      case "frontend":
-        return <Code2 className="w-4 h-4 text-accent" />;
-      case "backend":
-        return <Server className="w-4 h-4 text-purple-400" />;
-      case "database":
-        return <Database className="w-4 h-4 text-cyan-400" />;
+      case "full-stack":
+        return <Code2 className="w-5 h-5 text-accent" />;
+      case "ai-automation":
+        return <Workflow className="w-5 h-5 text-accent" />;
+      case "machine-learning":
+        return <BrainCircuit className="w-5 h-5 text-amber-400" />;
+      case "video-editing":
+        return <Video className="w-5 h-5 text-red-400" />;
+      case "branding":
+        return <Palette className="w-5 h-5 text-purple-400" />;
       case "devops":
-        return <Cloud className="w-4 h-4 text-amber-400" />;
-      case "hardware":
-        return <Cpu className="w-4 h-4 text-emerald-400" />;
+        return <Cloud className="w-5 h-5 text-teal-400" />;
+      case "embedded-iot":
+        return <Cpu className="w-5 h-5 text-emerald-400" />;
       default:
-        return <Wrench className="w-4 h-4 text-accent" />;
+        return <Code2 className="w-5 h-5 text-accent" />;
     }
   };
 
-  const handleCategoryClick = (id: string | null) => {
-    soundFX.playClick(850);
-    setActiveCategoryId(id);
-  };
-
   return (
-    <section id="skills" className="py-24 relative bg-[#09090D] border-t border-white/5 tech-grid overflow-hidden">
-      {/* Subtle 3D Ambient Dust */}
-      <FloatingParticles count={20} />
+    <section id="skills" className="py-20 sm:py-24 border-t border-white/[0.08] bg-[#07080D]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        {/* Header */}
+        <div className="max-w-xl mb-12 space-y-3">
+          <div className="flex items-center gap-2">
+            <span className="font-mono text-xs text-accent uppercase tracking-wider font-semibold">
+              // Core Competencies
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-display">
+            Grouped Technical Skills &amp; Stack
+          </h2>
+          <p className="text-sm text-neutral-400 leading-relaxed max-w-prose">
+            A structured breakdown of development tools, automation workflows, design strategy, and ongoing machine learning study.
+          </p>
+        </div>
 
-      {/* Atmospheric Glow */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[500px] bg-accent/[0.04] blur-[150px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-        <SectionHeading
-          index="02"
-          badge="Technical Competency"
-          badgeIcon={<Sparkles className="w-3.5 h-3.5" />}
-          title="Engineered for Performance,"
-          titleAccent="Built on Solid Stacks."
-          subtitle="An interactive 3D breakdown of languages, frameworks, cloud infrastructure, and hardware technologies I leverage daily."
-        />
-
-        {/* Categories Tab Selector with Frosted Glass */}
-        <Reveal direction="up" delay={0.1}>
-          <div className="flex flex-wrap items-center gap-2 mb-10 pb-4 border-b border-white/10">
-            <button
-              onClick={() => handleCategoryClick(null)}
-              className={`px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
-                activeCategoryId === null
-                  ? "bg-accent text-black font-bold shadow-[0_0_20px_rgba(0,240,255,0.4)] scale-105"
-                  : "bg-[#12121C]/60 backdrop-blur-md text-neutral-300 hover:text-white hover:bg-[#1A1A28] border border-white/10"
+        {/* Groups Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skillsData.map((group) => (
+            <div
+              key={group.id}
+              className={`p-6 sm:p-7 rounded-2xl bg-[#0F111A] border transition-all duration-200 flex flex-col justify-between space-y-5 shadow-sm ${
+                group.statusBadge
+                  ? "border-amber-500/30 hover:border-amber-500/50"
+                  : "border-white/[0.08] hover:border-white/[0.18]"
               }`}
             >
-              All Stacks ({skillsData.reduce((acc, g) => acc + g.skills.length, 0)})
-            </button>
-            {skillsData.map((group) => (
-              <button
-                key={group.id}
-                onClick={() => handleCategoryClick(group.id === activeCategoryId ? null : group.id)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
-                  activeCategoryId === group.id
-                    ? "bg-white text-black font-bold shadow-[0_0_20px_rgba(255,255,255,0.4)] scale-105"
-                    : "bg-[#12121C]/60 backdrop-blur-md text-neutral-300 hover:text-white hover:bg-[#1A1A28] border border-white/10"
-                }`}
-              >
-                {getCategoryIcon(group.id)}
-                <span>{group.badge}</span>
-              </button>
-            ))}
-          </div>
-        </Reveal>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/[0.06]">
+                    {getGroupIcon(group.id)}
+                  </div>
 
-        {/* 3D Tilt Skill Groups Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillsData
-            .filter((group) => (activeCategoryId ? group.id === activeCategoryId : true))
-            .map((group) => (
-              <Reveal key={group.id} direction="up" delay={0.15}>
-                <TiltCard maxTilt={8} glareOpacity={0.2} scaleOnHover={1.025}>
-                  <Card
-                    variant="glass"
-                    borderAccent
-                    className="p-6 h-full flex flex-col justify-between hover:border-accent/50 transition-all duration-300 group bg-[#0C0C14]/40 backdrop-blur-xl border-white/15 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]"
+                  {group.statusBadge ? (
+                    <span className="text-[11px] font-mono font-bold tracking-wider px-2.5 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">
+                      ★ {group.statusBadge}
+                    </span>
+                  ) : (
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-400 px-2 py-0.5 rounded bg-white/[0.03] border border-white/[0.06]">
+                      {group.badge}
+                    </span>
+                  )}
+                </div>
+
+                <div>
+                  <h3 className="text-base sm:text-lg font-bold text-white font-display">
+                    {group.category}
+                  </h3>
+                  <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
+                    {group.description}
+                  </p>
+                </div>
+
+                {group.proofLink && (
+                  <div className="pt-1">
+                    <a
+                      href={group.proofLink.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-mono text-red-400 hover:text-red-300 transition-colors"
+                    >
+                      <span>{group.proofLink.label}</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                )}
+              </div>
+
+              {/* Skills Tags */}
+              <div className="pt-4 border-t border-white/[0.06] flex flex-wrap gap-2">
+                {group.skills.map((skillName) => (
+                  <span
+                    key={skillName}
+                    className="px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/[0.08] text-xs font-mono text-neutral-200"
                   >
-                    <div>
-                      {/* Header */}
-                      <div className="flex items-center justify-between gap-3 mb-4">
-                        <div className="flex items-center gap-2.5">
-                          <div className="p-2 rounded-xl bg-white/5 border border-white/10 group-hover:border-accent/50 transition-colors">
-                            {getCategoryIcon(group.id)}
-                          </div>
-                          <h3 className="font-bold text-white text-base font-display">
-                            {group.category}
-                          </h3>
-                        </div>
-                        <Badge variant="default" size="sm">
-                          {group.badge}
-                        </Badge>
-                      </div>
-
-                      <p className="text-xs text-neutral-300 mb-6 leading-relaxed">
-                        {group.description}
-                      </p>
-
-                      {/* Skill Pills */}
-                      <div className="flex flex-wrap gap-2">
-                        {group.skills.map((skill) => (
-                          <div
-                            key={skill.name}
-                            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono transition-all duration-200 ${
-                              skill.highlight
-                                ? "bg-accent/15 border border-accent/40 text-white hover:border-accent shadow-[0_0_12px_rgba(0,240,255,0.1)]"
-                                : "bg-[#141420]/70 border border-white/10 text-neutral-300 hover:border-white/25 hover:text-white"
-                            }`}
-                          >
-                            {skill.highlight && (
-                              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-ping" />
-                            )}
-                            <span>{skill.name}</span>
-                            <span className="text-[10px] text-accent/80 ml-0.5">
-                              {skill.level === "Core" ? "★" : ""}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-neutral-400">
-                      <span>{group.skills.length} competencies</span>
-                      <span className="text-accent font-semibold">Production Verified</span>
-                    </div>
-                  </Card>
-                </TiltCard>
-              </Reveal>
-            ))}
+                    {skillName}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -47,13 +47,13 @@ export function Button({
 
   const variantStyles = {
     primary:
-      "bg-white text-black hover:bg-neutral-200 hover:shadow-[0_0_25px_rgba(255,255,255,0.2)] active:scale-[0.98]",
+      "bg-white text-black hover:bg-neutral-200 active:scale-[0.98]",
     "cyan-glow":
-      "bg-accent text-dark-bg font-semibold hover:bg-accent-hover shadow-[0_0_20px_rgba(0,240,255,0.3)] hover:shadow-[0_0_30px_rgba(0,240,255,0.5)] active:scale-[0.98]",
+      "bg-accent text-white font-semibold hover:bg-accent-hover shadow-sm active:scale-[0.98]",
     secondary:
-      "bg-[#171720] text-neutral-200 border border-white/10 hover:border-accent/40 hover:bg-[#1E1E2A] hover:text-white active:scale-[0.98]",
+      "bg-[#141622] text-neutral-200 border border-white/10 hover:border-white/25 hover:bg-[#1A1D2C] hover:text-white active:scale-[0.98]",
     outline:
-      "border border-white/15 text-neutral-300 hover:border-white/40 hover:text-white bg-transparent active:scale-[0.98]",
+      "border border-white/15 text-neutral-300 hover:border-white/35 hover:text-white bg-transparent active:scale-[0.98]",
     ghost:
       "text-neutral-400 hover:text-white hover:bg-white/5 active:scale-[0.98]",
   };

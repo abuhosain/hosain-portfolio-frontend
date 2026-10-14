@@ -43,13 +43,13 @@ export const journeyData: JourneyStage[] = [
   },
   {
     phase: "Stage 04",
-    title: "Hardware Convergence & SystomeX",
+    title: "NeexG & Global Recognition",
     period: "Current Stage",
-    description: "Ventured into hardware engineering, microcontrollers (ESP32), IoT telemetry, and founded SystomeX to build hardware-software robotics products.",
+    description: "Founded NeexG to deliver high-craft web apps and SaaS platforms, awarded International Gold Medals at IWC & I3C, and continuing hardware/embedded exploration.",
     milestones: [
-      "Developed the SmartFishBreeder autonomous aquaculture IoT ecosystem",
-      "Integrating FreeRTOS firmware with real-time web telemetry",
-      "Pioneering autonomous technology solutions and hardware venture initiatives",
+      "Awarded International Gold Medal at IWC (Innovation World Cup)",
+      "Awarded International Gold Medal at I3C (Invention & Innovation Competition)",
+      "Founded NeexG, shipping digital products for clients locally and globally",
     ],
     current: true,
   },

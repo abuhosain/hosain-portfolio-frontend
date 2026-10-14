@@ -28,10 +28,10 @@ export function Card({
   return (
     <div
       className={cn(
-        "relative rounded-2xl overflow-hidden transition-all duration-300",
+        "relative rounded-2xl overflow-hidden transition-all duration-200",
         variantStyles[variant],
-        glowOnHover && "hover:border-white/20 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5)]",
-        borderAccent && "hover:border-accent/40 hover:shadow-[0_0_25px_rgba(0,240,255,0.08)]",
+        glowOnHover && "hover:border-white/20 hover:shadow-md",
+        borderAccent && "hover:border-accent/40",
         className
       )}
       {...props}

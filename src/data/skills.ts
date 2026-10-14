@@ -1,101 +1,114 @@
 export interface SkillGroup {
   id: string;
   category: string;
-  badge: string;
+  badge?: string;
+  statusBadge?: string;
+  proofLink?: {
+    label: string;
+    url: string;
+  };
   description: string;
-  skills: {
-    name: string;
-    level: "Core" | "Advanced" | "Proficient";
-    highlight?: boolean;
-    iconName?: string;
-  }[];
+  skills: string[];
 }
 
 export const skillsData: SkillGroup[] = [
   {
-    id: "frontend",
-    category: "Frontend Engineering",
-    badge: "User Interface",
-    description: "Creating fluid, hyper-responsive client interfaces with pixel-level precision, micro-animations, and clean architecture.",
+    id: "full-stack",
+    category: "Full-Stack Development",
+    badge: "Core Engineering",
+    description: "Developing scalable web applications, robust APIs, and modern front-end architectures.",
     skills: [
-      { name: "React", level: "Core", highlight: true },
-      { name: "Next.js (App Router)", level: "Core", highlight: true },
-      { name: "TypeScript", level: "Core", highlight: true },
-      { name: "Tailwind CSS", level: "Core", highlight: true },
-      { name: "JavaScript (ES6+)", level: "Core" },
-      { name: "Framer Motion", level: "Advanced", highlight: true },
-      { name: "HTML5 / Semantic UI", level: "Core" },
-      { name: "CSS3 / Modern Layouts", level: "Core" },
+      "React",
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "TypeScript",
+      "JavaScript",
+      "MongoDB",
+      "PostgreSQL",
+      "Supabase",
+      "Firebase",
     ],
   },
   {
-    id: "backend",
-    category: "Backend & Systems",
-    badge: "Architecture",
-    description: "Designing resilient REST endpoints, microservices, authentication pipelines, and transactional backend logic.",
+    id: "ai-automation",
+    category: "AI Automation & Workflows",
+    badge: "Operations & Efficiency",
+    description: "Connecting platforms and eliminating repetitive manual tasks with automated pipelines.",
     skills: [
-      { name: "Node.js", level: "Core", highlight: true },
-      { name: "Express.js", level: "Core", highlight: true },
-      { name: "RESTful API Design", level: "Core", highlight: true },
-      { name: "JWT & Cookie Auth", level: "Core" },
-      { name: "Serverless Functions", level: "Advanced" },
-      { name: "API Gateways & Caching", level: "Proficient" },
+      "Zapier",
+      "n8n",
+      "API Integrations",
+      "Webhooks",
+      "Workflow Automation",
+      "AI Agents & LLM Automations",
     ],
   },
   {
-    id: "database",
-    category: "Databases & Storage",
-    badge: "Data Layer",
-    description: "Modeling schemas for transactional integrity, low-latency querying, real-time syncing, and cloud persistence.",
+    id: "machine-learning",
+    category: "Machine Learning",
+    statusBadge: "Currently Learning",
+    description: "Actively studying machine learning foundations and practical Python implementations (hands-on exploration, not claiming expert status).",
     skills: [
-      { name: "MongoDB / Mongoose", level: "Core", highlight: true },
-      { name: "PostgreSQL", level: "Advanced", highlight: true },
-      { name: "Supabase", level: "Advanced" },
-      { name: "Firebase Firestore", level: "Core", highlight: true },
-      { name: "Redis", level: "Proficient" },
-      { name: "Prisma ORM", level: "Advanced" },
+      "ML Fundamentals",
+      "Python for ML",
+      "Model Training & Evaluation",
+    ],
+  },
+  {
+    id: "video-editing",
+    category: "Video Editing & Content Creation",
+    badge: "Visual Storytelling",
+    proofLink: {
+      label: "Proof of Work (YouTube @hosainfo)",
+      url: "https://youtube.com/@hosainfo",
+    },
+    description: "Crafting engaging short-form reels, product explainers, and high-impact brand promo assets.",
+    skills: [
+      "Promo Videos",
+      "Short-Form Content (Reels/Shorts)",
+      "Brand Videos",
+      "Motion & Editing",
+    ],
+  },
+  {
+    id: "branding",
+    category: "Branding & Brand Identity",
+    badge: "Design Strategy",
+    description: "Establishing cohesive brand presence across digital touchpoints, positioning, and visual guidelines.",
+    skills: [
+      "Brand Strategy",
+      "Logo & Visual Identity Direction",
+      "Brand Guidelines",
+      "Social Media Branding",
+      "Content Planning",
+      "Brand Voice & Messaging",
+      "Launch Branding for Businesses",
     ],
   },
   {
     id: "devops",
-    category: "DevOps & Cloud Infrastructure",
-    badge: "Deployment",
-    description: "Setting up CI/CD automation, production Linux servers, cloud hosting, process managers, and domain routing.",
+    category: "DevOps & Cloud",
+    badge: "Deployment & Systems",
+    description: "Deploying secure, resilient web systems with automated continuous integration and edge hosting.",
     skills: [
-      { name: "AWS (EC2, S3)", level: "Advanced", highlight: true },
-      { name: "Vercel", level: "Core", highlight: true },
-      { name: "Linux / Ubuntu Server", level: "Core", highlight: true },
-      { name: "Nginx Reverse Proxy", level: "Advanced" },
-      { name: "PM2 Process Manager", level: "Core" },
-      { name: "Git & GitHub CI", level: "Core", highlight: true },
-      { name: "Docker Basics", level: "Proficient" },
+      "Docker",
+      "AWS",
+      "Vercel",
+      "Linux",
+      "Git & CI/CD",
     ],
   },
   {
-    id: "hardware",
-    category: "Robotics & Embedded Systems",
+    id: "embedded-iot",
+    category: "Embedded & IoT",
     badge: "Physical Computing",
-    description: "Writing firmware, configuring microcontrollers, reading analog/digital sensors, and streaming live telemetry to the cloud.",
+    description: "Prototyping microcontroller telemetry, firmware logic, and physical-digital sensor integrations.",
     skills: [
-      { name: "ESP32 Microcontroller", level: "Core", highlight: true },
-      { name: "Firebase IoT Sync", level: "Core", highlight: true },
-      { name: "C++ / Arduino IDE", level: "Advanced", highlight: true },
-      { name: "Sensor Telemetry (pH, Temp)", level: "Core" },
-      { name: "Servo Motors & Relays", level: "Core" },
-      { name: "Circuit Design Basics", level: "Proficient" },
-    ],
-  },
-  {
-    id: "methodology",
-    category: "Workflow & Product Tools",
-    badge: "Execution",
-    description: "Leveraging modern AI tooling, design-to-code workflows, agile sprints, and founder-level prioritization.",
-    skills: [
-      { name: "AI-Assisted Engineering", level: "Core", highlight: true },
-      { name: "System Architecture", level: "Core", highlight: true },
-      { name: "Figma to Code", level: "Advanced" },
-      { name: "Clean Code & Refactoring", level: "Core" },
-      { name: "Performance Optimization", level: "Advanced", highlight: true },
+      "ESP32",
+      "Embedded Systems",
+      "C++ / Arduino",
+      "Hardware Telemetry",
     ],
   },
 ];

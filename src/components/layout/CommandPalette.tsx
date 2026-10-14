@@ -87,8 +87,24 @@ export function CommandPalette() {
       shortcut: "G A",
     },
     {
+      id: "nav-ventures",
+      title: "Startups & Ventures (NeexG & Oregent)",
+      category: "Navigation",
+      icon: <ExternalLink className="w-4 h-4 text-accent" />,
+      action: () => navigateTo("#ventures"),
+      shortcut: "G V",
+    },
+    {
+      id: "nav-services",
+      title: "Services & Solutions",
+      category: "Navigation",
+      icon: <Code2 className="w-4 h-4 text-accent" />,
+      action: () => navigateTo("#services"),
+      shortcut: "G W",
+    },
+    {
       id: "nav-skills",
-      title: "Tech Stack & Skills",
+      title: "Grouped Tech Stack & Skills",
       category: "Navigation",
       icon: <Code2 className="w-4 h-4 text-accent" />,
       action: () => navigateTo("#skills"),
@@ -164,7 +180,10 @@ export function CommandPalette() {
     <>
       <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4">
+        <div
+          className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4"
+          data-lenis-prevent="true"
+        >
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -180,6 +199,9 @@ export function CommandPalette() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -10 }}
             transition={{ duration: 0.2 }}
+            role="dialog"
+            aria-modal="true"
+            data-lenis-prevent="true"
             className="relative w-full max-w-xl bg-[#0F0F16] border border-white/15 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden z-10"
           >
             {/* Terminal Header */}
@@ -218,7 +240,10 @@ export function CommandPalette() {
             </div>
 
             {/* Command List */}
-            <div className="max-h-80 overflow-y-auto p-2 divide-y divide-white/5">
+            <div
+              className="max-h-80 overflow-y-auto p-2 divide-y divide-white/5 overscroll-contain"
+              data-lenis-prevent="true"
+            >
               {filteredCommands.length > 0 ? (
                 filteredCommands.map((cmd, idx) => (
                   <button
@@ -253,8 +278,8 @@ export function CommandPalette() {
 
             {/* Footer */}
             <div className="px-4 py-2.5 bg-[#12121A] border-t border-white/5 text-[11px] font-mono text-neutral-500 flex justify-between">
-              <span>Tip: Press &apos;/&apos; anywhere on the site to reopen</span>
-              <span>abu-hosain.dev</span>
+              <span>Tip: Press &apos;/&apos; or Ctrl+K anywhere to search</span>
+              <span>abuhosain.dev</span>
             </div>
           </motion.div>
         </div>

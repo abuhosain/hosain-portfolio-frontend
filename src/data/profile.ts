@@ -1,20 +1,37 @@
+export interface Achievement {
+  title: string;
+  organization: string;
+  year?: string;
+  badge?: string;
+}
+
+export interface EducationItem {
+  degree: string;
+  institution: string;
+  period?: string;
+}
+
 export interface ProfileData {
   name: string;
   shortName: string;
+  headline: string;
+  mobileHeadline: string;
   tagline: string;
-  roles: string[];
+  roles: {
+    title: string;
+    organization: string;
+    url: string;
+  }[];
+  website: string;
   bio: string;
   detailedBio: string[];
   location: string;
+  achievements: Achievement[];
+  education: EducationItem[];
   availability: {
     status: "available" | "busy" | "selective";
     label: string;
   };
-  stats: {
-    label: string;
-    value: string;
-    sublabel?: string;
-  }[];
   pillars: {
     title: string;
     description: string;
@@ -26,61 +43,79 @@ export interface ProfileData {
 export const profileData: ProfileData = {
   name: "Abu Hosain",
   shortName: "Hosain",
-  tagline: "Software Engineer & Product Builder",
+  headline: "Software Engineer · Branding · AI Automation · Founder of NeexG · Co-Founder of Oregent",
+  mobileHeadline: "Software Engineer · Founder of NeexG & Oregent",
+  tagline: "Software Engineer, Branding & AI Automation",
   roles: [
-    "Software Engineer",
-    "Full-Stack Developer",
-    "Founder",
-    "Product Builder",
-    "IoT & Robotics Explorer",
+    {
+      title: "Founder & CEO",
+      organization: "NeexG",
+      url: "https://neexg.com",
+    },
+    {
+      title: "Co-Founder",
+      organization: "Oregent",
+      url: "https://oregent.com",
+    },
   ],
-  bio: "I don't just write code. I build scalable digital products, modern web architectures, and hardware-connected systems that turn ambitious concepts into reliable reality.",
+  website: "abuhosain.dev",
+  bio: "Full-stack software engineer, founder of NeexG and co-founder of Oregent, building web apps, SaaS products and e-commerce platforms. I also do branding, AI automation (n8n, Zapier) and video editing. International Gold Medalist at IWC and I3C. Diploma in Computer Science & Technology from Bogura Polytechnic Institute.",
   detailedBio: [
-    "Specialized in full-stack architecture, high-performance web systems, and end-to-end product execution.",
-    "Driven by the belief that exceptional software feels inevitable — combining meticulous engineering, sleek interactive design, and reliable cloud deployments.",
-    "Actively exploring hardware-software convergence through microcontrollers (ESP32), IoT telemetry, and robotics."
+    "Full-stack software engineer, founder of NeexG and co-founder of Oregent, engineering dependable web apps, scalable SaaS products and high-conversion e-commerce storefronts.",
+    "Specialized in modern front-end architecture, API design, brand identity systems, automated workflows (n8n, Zapier), and video content production.",
+    "Dual International Gold Medalist at the Innovation World Cup (IWC) and the International Invention and Innovation Competition (I3C). Proud alumnus of Bogura Polytechnic Institute with a Diploma in Computer Science & Technology."
   ],
   location: "Bangladesh",
-  availability: {
-    status: "selective",
-    label: "Available for selected high-impact projects",
-  },
-  stats: [
-    { label: "Engineering Scope", value: "End-to-End", sublabel: "Architecture to Deployment" },
-    { label: "Core Focus", value: "Full-Stack", sublabel: "Next.js · Node · Cloud" },
-    { label: "Hardware & IoT", value: "ESP32", sublabel: "Smart Systems & Robotics" },
-    { label: "Product Mindset", value: "Founder", sublabel: "SystomeX & Ventures" },
+  achievements: [
+    {
+      title: "International Gold Medalist",
+      organization: "IWC (Innovation World Cup)",
+      badge: "Gold Medal",
+    },
+    {
+      title: "International Gold Medalist",
+      organization: "I3C (International Invention and Innovation Competition)",
+      badge: "Gold Medal",
+    },
+    {
+      title: "Founder & CEO",
+      organization: "NeexG (neexg.com)",
+      badge: "Leadership",
+    },
+    {
+      title: "Co-Founder",
+      organization: "Oregent (oregent.com)",
+      badge: "Commerce & Brand",
+    },
   ],
+  education: [
+    {
+      degree: "Diploma in Computer Science and Technology (CST)",
+      institution: "Bogura Polytechnic Institute",
+    },
+  ],
+  availability: {
+    status: "available",
+    label: "Available for SaaS, web engineering & AI automation",
+  },
   pillars: [
     {
-      title: "Software Development",
-      description: "Crafting resilient web architectures, modern API backends, and responsive, fluid user interfaces.",
+      title: "Full-Stack & SaaS Engineering",
+      description: "Building production React/Next.js platforms and robust Node.js APIs designed for speed, type safety, and real business uptime.",
       icon: "Code2",
-      tag: "Core Engineering",
+      tag: "Engineering",
     },
     {
-      title: "Product Building",
-      description: "Iterating from 0 to 1 — turning real-world problem statements into intuitive, shipped digital products.",
-      icon: "Boxes",
-      tag: "Zero to One",
+      title: "Branding & Visual Direction",
+      description: "Crafting distinct brand identities, positioning, and design systems so your website, product, and content feel like one cohesive brand.",
+      icon: "Palette",
+      tag: "Brand Identity",
     },
     {
-      title: "Startup & Venture Thinking",
-      description: "Aligning technical decisions directly with user value, unit economics, and scalable business foundations.",
-      icon: "Rocket",
-      tag: "SystomeX",
-    },
-    {
-      title: "Robotics & IoT",
-      description: "Bridging code with physical hardware: sensor telemetry, automated relays, ESP32 microcontrollers.",
+      title: "AI & Workflow Automation",
+      description: "Connecting n8n, Zapier, LLMs, and custom webhooks to automate lead capture, CRM sync, notifications, and operational pipelines.",
       icon: "Cpu",
-      tag: "The Lab",
-    },
-    {
-      title: "Problem Solving",
-      description: "Structured debugging, architectural optimization, and continuous refinement of complex engineering stacks.",
-      icon: "TerminalSquare",
-      tag: "Execution",
+      tag: "Automation",
     },
   ],
 };

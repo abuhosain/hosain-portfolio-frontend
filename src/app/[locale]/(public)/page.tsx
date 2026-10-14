@@ -1,9 +1,10 @@
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
+import { Ventures } from "@/components/sections/Ventures";
+import { Services } from "@/components/sections/Services";
 import { Skills } from "@/components/sections/Skills";
 import { Projects } from "@/components/sections/Projects";
 import { Lab } from "@/components/sections/Lab";
-import { Founder } from "@/components/sections/Founder";
 import { HowIBuild } from "@/components/sections/HowIBuild";
 import { Journey } from "@/components/sections/Journey";
 import { Experience } from "@/components/sections/Experience";
@@ -14,44 +15,47 @@ import { Contact } from "@/components/sections/Contact";
 
 export default function HomePage() {
   return (
-    <div className="relative w-full overflow-hidden bg-[#0A0A0D]">
-      {/* 1. Hero */}
+    <div className="relative w-full overflow-hidden bg-[#090A0F]">
+      {/* 1. Hero: Headline, Name, CTAs, Honors, Education */}
       <Hero />
 
-      {/* 2. About & Core Pillars */}
+      {/* 2. About & Core Background */}
       <About />
 
-      {/* 3. Skills / Tech Stack */}
+      {/* 3. Startups & Ventures: NeexG & Oregent */}
+      <Ventures />
+
+      {/* 4. Services: What I Can Do For You, 3-Step Methodology, SVG Automation Pipeline */}
+      <Services />
+
+      {/* 5. Grouped Skills & Stack */}
       <Skills />
 
-      {/* 4. Projects Showcase */}
+      {/* 6. Projects Showcase: Curated Live Production Systems */}
       <Projects />
 
-      {/* 5. The Lab — Building Outside the Browser */}
+      {/* 7. The Lab: Hardware & Embedded Systems (ESP32) */}
       <Lab />
 
-      {/* 6. Founder / SystomeX */}
-      <Founder />
-
-      {/* 7. How I Build (01-06 Methodology) */}
+      {/* 8. How I Build (01-06 Engineering Methodology) */}
       <HowIBuild />
 
-      {/* 8. Journey (Evolution & Milestones) */}
+      {/* 9. Journey & Milestones */}
       <Journey />
 
-      {/* 9. Experience & Architectural Capabilities */}
+      {/* 10. Architectural Experience & Production Roles */}
       <Experience />
 
-      {/* 10. Engineering Philosophy */}
+      {/* 11. Engineering Philosophy */}
       <Philosophy />
 
-      {/* 11. GitHub & Code Activity */}
+      {/* 12. GitHub Code Activity */}
       <GitHubActivity />
 
-      {/* 12. Articles & Technical Notes */}
+      {/* 13. Articles & Technical Notes */}
       <Articles />
 
-      {/* 13. Contact Hub */}
+      {/* 14. Contact Hub */}
       <Contact />
     </div>
   );

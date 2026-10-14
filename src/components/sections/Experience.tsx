@@ -2,86 +2,75 @@
 
 import React from "react";
 import { experienceData } from "@/data/experience";
-import { SectionHeading } from "../ui/SectionHeading";
-import { Card } from "../ui/Card";
-import { Badge } from "../ui/Badge";
-import { Reveal } from "../animations/Reveal";
-import { TiltCard } from "../animations/TiltCard";
-import { FloatingParticles } from "../animations/FloatingParticles";
-import { CheckCircle2, Sparkles } from "lucide-react";
+import { CheckCircle2, Briefcase } from "lucide-react";
 
 export function Experience() {
   return (
-    <section id="experience" className="py-24 relative bg-[#09090D] border-t border-white/5 tech-grid overflow-hidden">
-      <FloatingParticles count={20} />
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-        <SectionHeading
-          index="08"
-          badge="Experience & Scope"
-          badgeIcon={<Sparkles className="w-3.5 h-3.5" />}
-          title="Engineering Capabilities"
-          titleAccent="& Responsibilities."
-          subtitle="A structured 3D breakdown of roles, architectural ownership, and technical contributions across product engineering."
-        />
+    <section id="experience" className="py-24 border-t border-white/[0.08] bg-[#090A0F]">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-xl mb-12 space-y-3">
+          <div className="flex items-center gap-2">
+            <span className="font-mono text-xs text-accent uppercase tracking-wider font-semibold">
+              // Professional Experience
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-display">
+            Engineering Scope &amp; Architectural Ownership
+          </h2>
+          <p className="text-sm text-neutral-400 leading-relaxed max-w-prose">
+            Hands-on technical leadership, client delivery, and full-stack software architecture
+            across SaaS platforms and scalable web products.
+          </p>
+        </div>
 
         <div className="space-y-6">
           {experienceData.map((exp, idx) => (
-            <Reveal key={exp.role} direction="up" delay={idx * 0.1}>
-              <TiltCard maxTilt={6} glareOpacity={0.2} scaleOnHover={1.015}>
-                <Card
-                  variant="glass"
-                  borderAccent
-                  className="p-6 md:p-8 hover:border-accent/50 transition-all duration-300 bg-[#0C0C14]/40 backdrop-blur-xl border-white/15 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]"
-                >
-                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 mb-6 border-b border-white/10">
-                    <div>
-                      <div className="flex items-center gap-2 mb-1.5">
-                        <span className="font-mono text-xs text-accent font-bold uppercase tracking-wider">
-                          {exp.scope}
-                        </span>
-                      </div>
-                      <h3 className="text-2xl font-bold text-white font-display">
-                        {exp.role}
-                      </h3>
-                    </div>
+            <div
+              key={idx}
+              className="p-6 md:p-8 rounded-2xl bg-[#0F111A] border border-white/[0.08] hover:border-white/[0.18] transition-colors space-y-5"
+            >
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-5 border-b border-white/[0.06]">
+                <div>
+                  <span className="font-mono text-xs text-accent uppercase tracking-wider font-semibold">
+                    {exp.scope}
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white font-display mt-0.5">
+                    {exp.role}
+                  </h3>
+                </div>
 
-                    <div className="flex flex-wrap items-center gap-2">
-                      <Badge variant="default" size="sm">
-                        {exp.focus}
-                      </Badge>
-                    </div>
+                <span className="text-xs font-mono text-neutral-300 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] self-start lg:self-auto">
+                  {exp.focus}
+                </span>
+              </div>
+
+              <p className="text-sm text-neutral-300 leading-relaxed">
+                {exp.summary}
+              </p>
+
+              {/* Capabilities list */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+                {exp.capabilities.map((cap, cIdx) => (
+                  <div key={cIdx} className="flex items-start gap-2.5 text-xs text-neutral-300">
+                    <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">{cap}</span>
                   </div>
+                ))}
+              </div>
 
-                  <p className="text-sm text-neutral-300 mb-6 leading-relaxed font-normal">
-                    {exp.summary}
-                  </p>
-
-                  {/* Capabilities list */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
-                    {exp.capabilities.map((cap, cIdx) => (
-                      <div key={cIdx} className="flex items-start gap-2.5 text-xs text-neutral-300 font-mono">
-                        <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-                        <span>{cap}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Tech stack tags */}
-                  <div className="pt-4 border-t border-white/10 flex flex-wrap items-center gap-2">
-                    <span className="text-xs font-mono text-neutral-400 mr-2">Technologies:</span>
-                    {exp.techUsed.map((t) => (
-                      <span
-                        key={t}
-                        className="px-2.5 py-1 rounded-md bg-[#161626]/70 border border-white/10 text-[11px] font-mono text-neutral-200"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </Card>
-              </TiltCard>
-            </Reveal>
+              {/* Technologies */}
+              <div className="pt-4 border-t border-white/[0.06] flex flex-wrap items-center gap-2">
+                <span className="text-xs font-mono text-neutral-500 mr-1">Stack:</span>
+                {exp.techUsed.map((t) => (
+                  <span
+                    key={t}
+                    className="px-2.5 py-1 rounded-md bg-white/[0.03] border border-white/[0.06] text-[11px] font-mono text-neutral-300"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>

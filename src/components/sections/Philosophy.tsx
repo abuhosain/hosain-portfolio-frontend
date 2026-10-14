@@ -2,74 +2,63 @@
 
 import React from "react";
 import { philosophyData } from "@/data/philosophy";
-import { SectionHeading } from "../ui/SectionHeading";
-import { Card } from "../ui/Card";
-import { Reveal } from "../animations/Reveal";
-import { TiltCard } from "../animations/TiltCard";
-import { FloatingParticles } from "../animations/FloatingParticles";
-import { Quote, Sparkles } from "lucide-react";
+import { Quote } from "lucide-react";
 
 export function Philosophy() {
   return (
-    <section id="philosophy" className="py-24 relative bg-[#07070B] border-t border-white/5 overflow-hidden">
-      <FloatingParticles count={20} />
+    <section id="philosophy" className="py-24 border-t border-white/[0.08] bg-[#090A0F]">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-xl mb-12 space-y-3">
+          <div className="flex items-center gap-2">
+            <span className="font-mono text-xs text-accent uppercase tracking-wider font-semibold">
+              // Mental Models
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-display">
+            Engineering Philosophy
+          </h2>
+          <p className="text-sm text-neutral-400 leading-relaxed max-w-prose">
+            {philosophyData.subheadline}
+          </p>
+        </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-        <SectionHeading
-          index="09"
-          badge="Mental Models"
-          badgeIcon={<Sparkles className="w-3.5 h-3.5" />}
-          title="Engineering Philosophy &"
-          titleAccent="Guiding Principles."
-          subtitle={philosophyData.subheadline}
-        />
-
-        {/* Featured Quotes in 3D Tilt Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        {/* Featured Quotes */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {philosophyData.quotes.map((q, idx) => (
-            <Reveal key={idx} direction="up" delay={idx * 0.15}>
-              <TiltCard maxTilt={8} glareOpacity={0.25} scaleOnHover={1.02}>
-                <Card
-                  variant="glass"
-                  borderAccent
-                  className="p-8 md:p-10 h-full flex flex-col justify-between relative overflow-hidden bg-[#0C0C14]/40 backdrop-blur-xl border-white/15 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]"
-                >
-                  <Quote className="w-12 h-12 text-accent/15 absolute top-6 right-6 pointer-events-none" />
+            <div
+              key={idx}
+              className="p-8 rounded-2xl bg-[#0F111A] border border-white/[0.08] hover:border-white/[0.18] transition-colors flex flex-col justify-between space-y-4"
+            >
+              <div className="space-y-3">
+                <span className="font-mono text-xs text-accent uppercase tracking-wider font-semibold">
+                  Principle 0{idx + 1}
+                </span>
+                <blockquote className="text-xl sm:text-2xl font-bold text-white leading-snug font-display">
+                  &ldquo;{q.quote}&rdquo;
+                </blockquote>
+              </div>
 
-                  <div className="space-y-4">
-                    <span className="font-mono text-xs text-accent uppercase tracking-widest font-bold">
-                      Principle 0{idx + 1}
-                    </span>
-                    <blockquote className="text-xl md:text-2xl font-bold text-white leading-snug font-display">
-                      &ldquo;{q.quote}&rdquo;
-                    </blockquote>
-                  </div>
-
-                  <div className="mt-8 pt-4 border-t border-white/10 text-xs font-mono text-neutral-400">
-                    {q.context}
-                  </div>
-                </Card>
-              </TiltCard>
-            </Reveal>
+              <div className="pt-4 border-t border-white/[0.06] text-xs font-mono text-neutral-400">
+                {q.context}
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* Supporting Principles with 3D Tilt */}
+        {/* Supporting Principles */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {philosophyData.principles.map((p, idx) => (
-            <Reveal key={p.title} direction="up" delay={0.2 + idx * 0.1}>
-              <TiltCard maxTilt={10} glareOpacity={0.2} scaleOnHover={1.03}>
-                <Card variant="glass" className="p-6 bg-[#0C0C14]/40 backdrop-blur-xl border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] h-full">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Sparkles className="w-4 h-4 text-accent" />
-                    <h4 className="text-base font-bold text-white font-display">{p.title}</h4>
-                  </div>
-                  <p className="text-xs text-neutral-300 leading-relaxed font-normal">
-                    {p.description}
-                  </p>
-                </Card>
-              </TiltCard>
-            </Reveal>
+          {philosophyData.principles.map((p) => (
+            <div
+              key={p.title}
+              className="p-6 rounded-2xl bg-[#0F111A] border border-white/[0.08] space-y-2"
+            >
+              <h4 className="text-sm font-bold text-white font-display">
+                {p.title}
+              </h4>
+              <p className="text-xs text-neutral-400 leading-relaxed">
+                {p.description}
+              </p>
+            </div>
           ))}
         </div>
       </div>

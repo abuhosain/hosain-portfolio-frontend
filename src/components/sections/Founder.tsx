@@ -2,88 +2,92 @@
 
 import React from "react";
 import { founderData } from "@/data/founder";
-import { SectionHeading } from "../ui/SectionHeading";
-import { Card } from "../ui/Card";
-import { Badge } from "../ui/Badge";
-import { Reveal } from "../animations/Reveal";
-import { StaggerContainer, StaggerItem } from "../animations/Stagger";
-import { TiltCard } from "../animations/TiltCard";
-import { Rocket, Cpu, Sparkles } from "lucide-react";
+import { ArrowUpRight, Globe, CheckCircle2 } from "lucide-react";
 
 export function Founder() {
   return (
-    <section id="founder" className="py-24 relative bg-[#09090C] border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <SectionHeading
-          index="05"
-          badge="Founder Mindset & Venture"
-          title="Building Products is Not Just My Profession."
-          titleAccent="It's How I Think."
-          subtitle="SystomeX represents an ongoing venture trajectory bridging physical hardware solutions, practical robotics kits, and scalable software ecosystems."
-        />
+    <section id="founder" className="py-24 border-t border-white/[0.08] bg-[#07080D]">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Section Header */}
+        <div className="max-w-xl mb-12 space-y-3">
+          <div className="flex items-center gap-2">
+            <span className="font-mono text-xs text-accent uppercase tracking-wider font-semibold">
+              // Venture &amp; Leadership
+            </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-display">
+            Founder &amp; CEO at NeexG
+          </h2>
+          <p className="text-sm text-neutral-400 leading-relaxed max-w-prose">
+            Building software products from zero to scale. Delivering custom platforms, scalable
+            SaaS tools, and high-performance digital infrastructure.
+          </p>
+        </div>
 
-        {/* Vision Statement Banner */}
-        <Reveal direction="up" delay={0.1}>
-          <TiltCard maxTilt={5} glareOpacity={0.15}>
-            <div className="p-8 md:p-10 rounded-2xl bg-gradient-to-br from-[#12121D]/95 via-[#161626]/95 to-[#101018]/95 border border-white/10 mb-12 relative overflow-hidden backdrop-blur-md shadow-[0_15px_40px_rgba(0,0,0,0.6)]">
-              <div className="absolute -right-10 -bottom-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+        {/* Feature Banner */}
+        <div className="p-8 sm:p-10 rounded-2xl bg-[#0F111A] border border-white/[0.08] mb-12 shadow-sm space-y-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-white/[0.06]">
+            <div className="space-y-1.5">
+              <span className="text-xs font-mono uppercase tracking-wider text-accent font-semibold">
+                Technology Company
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-display">
+                {founderData.ventureName}
+              </h3>
+              <p className="text-sm text-neutral-300 font-mono">
+                {founderData.tagline}
+              </p>
+            </div>
 
-              <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 relative z-10">
-                <div className="space-y-3 max-w-2xl">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-accent animate-ping" />
-                    <span className="font-mono text-xs text-accent uppercase tracking-widest font-semibold">
-                      Venture Initiative: {founderData.ventureName}
-                    </span>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white font-display">
-                    {founderData.tagline}
-                  </h3>
-                  <div className="space-y-2 pt-2 text-neutral-300 text-sm leading-relaxed">
-                    {founderData.thesis.map((point, idx) => (
-                      <p key={idx}>{point}</p>
-                    ))}
-                  </div>
+            <a
+              href={founderData.websiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent hover:bg-accent-hover text-white text-xs font-semibold transition-colors self-start md:self-auto shadow-sm"
+              aria-label="Visit NeexG official website at neexg.com"
+            >
+              <Globe className="w-4 h-4" />
+              <span>Visit neexg.com</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
+          </div>
+
+          <div className="space-y-3 text-sm text-neutral-300 leading-relaxed max-w-3xl">
+            {founderData.thesis.map((point, idx) => (
+              <p key={idx}>{point}</p>
+            ))}
+          </div>
+        </div>
+
+        {/* Focus Areas Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {founderData.focusAreas.map((area, idx) => (
+            <div
+              key={area.title}
+              className="p-6 rounded-2xl bg-[#0F111A] border border-white/[0.08] hover:border-white/[0.18] transition-colors flex flex-col justify-between space-y-4"
+            >
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono uppercase tracking-wider text-accent font-semibold px-2 py-0.5 rounded bg-accent/10 border border-accent/20">
+                    {area.badge}
+                  </span>
+                  <span className="font-mono text-xs text-neutral-500">0{idx + 1}</span>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-black/60 border border-white/10 shrink-0 text-center font-mono">
-                  <div className="text-xs text-neutral-400">Direction</div>
-                  <div className="text-lg font-bold text-accent mt-1">Robotics &amp; Tech</div>
-                  <div className="text-[10px] text-neutral-500 mt-1">Early-Stage Execution</div>
-                </div>
+                <h4 className="text-base font-bold text-white font-display">
+                  {area.title}
+                </h4>
+
+                <p className="text-xs text-neutral-400 leading-relaxed">
+                  {area.description}
+                </p>
               </div>
             </div>
-          </TiltCard>
-        </Reveal>
-
-        {/* Focus Areas with 3D Tilt */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {founderData.focusAreas.map((area, idx) => (
-            <StaggerItem key={area.title}>
-              <TiltCard maxTilt={10} glareOpacity={0.25} scaleOnHover={1.03}>
-                <Card
-                  variant="glass"
-                  borderAccent
-                  className="p-6 h-full flex flex-col justify-between hover:bg-[#13131E] transition-all bg-[#0E0E16]/90 backdrop-blur-md border-white/10"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <Badge variant="accent" size="sm">
-                        {area.badge}
-                      </Badge>
-                      <span className="font-mono text-xs text-neutral-500">0{idx + 1}</span>
-                    </div>
-                    <h4 className="text-lg font-semibold text-white mb-2 font-display">{area.title}</h4>
-                    <p className="text-xs text-neutral-400 leading-relaxed">
-                      {area.description}
-                    </p>
-                  </div>
-                </Card>
-              </TiltCard>
-            </StaggerItem>
           ))}
-        </StaggerContainer>
+        </div>
       </div>
     </section>
   );
 }
+
+export default Founder;

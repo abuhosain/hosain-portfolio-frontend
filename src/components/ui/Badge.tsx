@@ -24,11 +24,11 @@ export function Badge({
   };
 
   const variantStyles = {
-    default: "bg-[#161620] text-neutral-300 border border-white/10",
-    accent: "bg-accent/10 text-accent border border-accent/30 shadow-[0_0_12px_rgba(0,240,255,0.15)]",
+    default: "bg-[#141622] text-neutral-300 border border-white/10",
+    accent: "bg-accent/10 text-accent border border-accent/25",
     success: "bg-emerald-500/10 text-emerald-400 border border-emerald-500/30",
     outline: "border border-white/15 text-neutral-400 bg-transparent",
-    live: "bg-emerald-950/60 text-emerald-300 border border-emerald-500/40 shadow-[0_0_15px_rgba(16,185,129,0.2)]",
+    live: "bg-emerald-950/40 text-emerald-300 border border-emerald-500/30",
   };
 
   return (

@@ -1,172 +1,228 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { socialsData } from "@/data/socials";
-import { soundFX } from "@/lib/sound";
-import { TiltCard } from "../animations/TiltCard";
-import { ArrowUp, Github, Linkedin, Facebook, Mail, Globe, Radio } from "lucide-react";
-import { Magnetic } from "../animations/Magnetic";
+import {
+  Mail,
+  Phone,
+  MessageCircle,
+  Facebook,
+  Instagram,
+  Youtube,
+  Globe,
+  ShoppingBag,
+  ArrowUpRight,
+  ArrowUp,
+} from "lucide-react";
 
 export function Footer() {
-  const [timeStr, setTimeStr] = useState("");
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      setTimeStr(
-        now.toLocaleTimeString("en-US", {
-          timeZone: "Asia/Dhaka",
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-          hour12: true,
-        })
-      );
-    };
-    updateTime();
-    const timer = setInterval(updateTime, 1000);
-    return () => clearInterval(timer);
-  }, []);
+  const currentYear = new Date().getFullYear();
 
   const scrollToTop = () => {
-    soundFX.playShockwave();
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const getSocialIcon = (platform: string) => {
     switch (platform.toLowerCase()) {
-      case "github":
-        return <Github className="w-4 h-4" />;
-      case "linkedin":
-        return <Linkedin className="w-4 h-4" />;
-      case "facebook":
-        return <Facebook className="w-4 h-4" />;
       case "email":
         return <Mail className="w-4 h-4" />;
-      default:
+      case "whatsapp":
+        return <MessageCircle className="w-4 h-4" />;
+      case "phone":
+        return <Phone className="w-4 h-4" />;
+      case "facebook":
+        return <Facebook className="w-4 h-4" />;
+      case "instagram":
+        return <Instagram className="w-4 h-4" />;
+      case "youtube":
+        return <Youtube className="w-4 h-4" />;
+      case "neexg":
         return <Globe className="w-4 h-4" />;
+      case "oregent":
+        return <ShoppingBag className="w-4 h-4" />;
+      default:
+        return <ArrowUpRight className="w-4 h-4" />;
     }
   };
 
   return (
-    <footer className="relative bg-[#060609] border-t border-white/10 pt-16 pb-12 overflow-hidden">
-      {/* Subtle top glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-accent/10 blur-3xl pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
-          {/* Col 1: Brand & Tagline */}
-          <div className="md:col-span-2 space-y-4">
-            <div className="flex items-center gap-2.5">
-              <span className="w-3 h-3 rounded-full bg-accent shadow-[0_0_12px_#00F0FF] animate-pulse" />
-              <h3 className="font-display font-black text-xl tracking-wider text-white uppercase">
+    <footer className="border-t border-white/[0.08] bg-[#07080C] text-neutral-400 py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-white/[0.06]">
+          {/* Brand info */}
+          <div className="md:col-span-5 space-y-4">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-accent" />
+              <h3 className="font-display font-bold text-lg text-white tracking-tight">
                 Abu Hosain
               </h3>
             </div>
-            <p className="text-sm text-neutral-300 max-w-md leading-relaxed font-normal">
-              Software Engineer, Full-Stack Architect &amp; Founder. Building scalable digital products,
-              autonomous IoT hardware, and high-performance modern web platforms.
+            <p className="text-sm text-neutral-400 leading-relaxed max-w-sm">
+              Full-stack software engineer, founder of{" "}
+              <a
+                href="https://neexg.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-accent font-medium underline underline-offset-4 decoration-white/20 transition-colors"
+              >
+                NeexG
+              </a>{" "}
+              and co-founder of{" "}
+              <a
+                href="https://oregent.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-amber-400 font-medium underline underline-offset-4 decoration-white/20 transition-colors"
+              >
+                Oregent
+              </a>
+              . International Gold Medalist at IWC &amp; I3C. Building web apps, SaaS products, e-commerce platforms, and AI automations.
             </p>
-            <div className="flex items-center gap-3 pt-2">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span className="text-xs font-mono text-emerald-400 font-medium">
-                Open for high-impact software &amp; hardware projects
-              </span>
+            <div className="pt-2 text-xs font-mono text-neutral-500">
+              Bogura Polytechnic Institute (CST) &bull; Bangladesh
             </div>
           </div>
 
-          {/* Col 2: Navigation shortcuts */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-mono font-bold text-neutral-200 uppercase tracking-wider">
+          {/* Quick links */}
+          <div className="md:col-span-3 space-y-3">
+            <h4 className="text-xs font-mono font-semibold text-white uppercase tracking-wider">
               Navigation
             </h4>
-            <ul className="space-y-2 text-sm text-neutral-400">
+            <ul className="space-y-2 text-sm">
               <li>
-                <a href="#about" className="hover:text-accent transition-colors">
-                  About Me
+                <a href="#about" className="hover:text-white transition-colors">
+                  About &amp; Honors
                 </a>
               </li>
               <li>
-                <a href="#projects" className="hover:text-accent transition-colors">
+                <a href="#ventures" className="hover:text-white transition-colors">
+                  Startups &amp; Ventures
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="hover:text-white transition-colors">
+                  Services &amp; Solutions
+                </a>
+              </li>
+              <li>
+                <a href="#skills" className="hover:text-white transition-colors">
+                  Technical Stack
+                </a>
+              </li>
+              <li>
+                <a href="#projects" className="hover:text-white transition-colors">
                   Featured Projects
                 </a>
               </li>
               <li>
-                <a href="#lab" className="hover:text-accent transition-colors">
-                  The Lab (Hardware &amp; IoT)
-                </a>
-              </li>
-              <li>
-                <a href="#founder" className="hover:text-accent transition-colors">
-                  SystomeX Venture
-                </a>
-              </li>
-              <li>
-                <a href="#journey" className="hover:text-accent transition-colors">
-                  Career Journey
+                <a href="#contact" className="hover:text-white transition-colors">
+                  Contact &amp; Inquiries
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Live Telemetry Card with 3D Tilt */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-mono font-bold text-neutral-200 uppercase tracking-wider">
-              System Telemetry
+          {/* Direct channels & Company */}
+          <div className="md:col-span-4 space-y-3">
+            <h4 className="text-xs font-mono font-semibold text-white uppercase tracking-wider">
+              Connect &amp; Ventures
             </h4>
-            <TiltCard maxTilt={8} glareOpacity={0.2}>
-              <div className="p-4 rounded-2xl bg-[#0F0F1A]/50 border border-white/10 backdrop-blur-xl space-y-2 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]">
-                <div className="flex items-center justify-between text-xs font-mono text-neutral-400">
-                  <span>Location:</span>
-                  <span className="text-neutral-200 font-semibold">Dhaka, Bangladesh</span>
-                </div>
-                <div className="flex items-center justify-between text-xs font-mono text-neutral-400">
-                  <span>Local Time:</span>
-                  <span className="text-accent font-bold">{timeStr || "06:00 AM"}</span>
-                </div>
-                <div className="flex items-center justify-between text-xs font-mono text-neutral-400">
-                  <span>Engine:</span>
-                  <span className="text-emerald-400 font-semibold">Three.js + Lenis</span>
-                </div>
+            <div className="space-y-2 text-sm">
+              <a
+                href="mailto:abuhosainmin@gmail.com"
+                className="flex items-center gap-2 text-neutral-300 hover:text-accent transition-colors"
+                aria-label="Email Abu Hosain at abuhosainmin@gmail.com"
+              >
+                <Mail className="w-4 h-4 text-neutral-400" />
+                <span>abuhosainmin@gmail.com</span>
+              </a>
+
+              <a
+                href="https://wa.me/8801319539510"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-neutral-300 hover:text-accent transition-colors"
+                aria-label="Message on WhatsApp 01319539510"
+              >
+                <MessageCircle className="w-4 h-4 text-emerald-400" />
+                <span>01319539510 (WhatsApp)</span>
+              </a>
+
+              <div className="flex flex-wrap items-center gap-4 pt-1">
+                <a
+                  href="https://neexg.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-blue-400 hover:underline font-medium text-xs font-mono"
+                  aria-label="Visit NeexG official website at neexg.com"
+                >
+                  <Globe className="w-3.5 h-3.5" />
+                  <span>neexg.com</span>
+                  <ArrowUpRight className="w-3 h-3" />
+                </a>
+
+                <a
+                  href="https://oregent.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-amber-400 hover:underline font-medium text-xs font-mono"
+                  aria-label="Visit Oregent official brand store at oregent.com"
+                >
+                  <ShoppingBag className="w-3.5 h-3.5" />
+                  <span>oregent.com</span>
+                  <ArrowUpRight className="w-3 h-3" />
+                </a>
               </div>
-            </TiltCard>
+            </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400 font-mono">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500 font-mono">
           <div>
-            © {new Date().getFullYear()} Abu Hosain. Zero hardcoded JSX. Engineered with craft.
+            &copy; {currentYear} Abu Hosain. All rights reserved. Built with precision for{" "}
+            <a
+              href="https://neexg.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-400 hover:text-white transition-colors"
+            >
+              NeexG
+            </a>{" "}
+            &amp;{" "}
+            <a
+              href="https://oregent.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-400 hover:text-white transition-colors"
+            >
+              Oregent
+            </a>
+            .
           </div>
 
-          {/* Social icons */}
           <div className="flex items-center gap-3">
             {socialsData.links.map((link) => (
-              <Magnetic key={link.platform} strength={0.25}>
-                <a
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={link.label}
-                  className="p-2 rounded-full bg-white/5 border border-white/10 text-neutral-400 hover:text-accent hover:border-accent/40 hover:bg-white/10 transition-all inline-flex"
-                >
-                  {getSocialIcon(link.platform)}
-                </a>
-              </Magnetic>
+              <a
+                key={link.platform}
+                href={link.url}
+                target="_blank"
+                rel={`noopener noreferrer${link.relMe ? " me" : ""}`}
+                aria-label={link.ariaLabel}
+                className="p-2 min-h-[36px] min-w-[36px] flex items-center justify-center rounded-lg bg-white/[0.03] border border-white/[0.06] text-neutral-400 hover:text-white hover:border-white/20 transition-colors"
+              >
+                {getSocialIcon(link.platform)}
+              </a>
             ))}
 
-            <Magnetic strength={0.3}>
-              <button
-                onClick={scrollToTop}
-                title="Scroll back to top"
-                className="p-2.5 rounded-full bg-accent/20 border border-accent/40 text-accent hover:bg-accent hover:text-black transition-all ml-2 shadow-[0_0_15px_rgba(0,240,255,0.3)]"
-              >
-                <ArrowUp className="w-4 h-4" />
-              </button>
-            </Magnetic>
+            <button
+              onClick={scrollToTop}
+              title="Back to top"
+              aria-label="Scroll back to top"
+              className="p-2 min-h-[36px] min-w-[36px] flex items-center justify-center rounded-lg bg-white/[0.03] border border-white/[0.06] text-neutral-400 hover:text-white hover:border-white/20 transition-colors ml-2"
+            >
+              <ArrowUp className="w-4 h-4" />
+            </button>
           </div>
         </div>
       </div>

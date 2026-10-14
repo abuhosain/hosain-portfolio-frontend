@@ -2,6 +2,7 @@ export interface FounderData {
   ventureName: string;
   tagline: string;
   statement: string;
+  websiteUrl: string;
   thesis: string[];
   focusAreas: {
     title: string;
@@ -11,28 +12,29 @@ export interface FounderData {
 }
 
 export const founderData: FounderData = {
-  ventureName: "SystomeX",
-  tagline: "Robotics, Autonomous Hardware & Modern Technology Solutions",
-  statement: "Building products is not only my profession. It's how I think.",
+  ventureName: "NeexG",
+  tagline: "Building Web Apps, SaaS Products & E-Commerce Solutions",
+  statement: "Turning Ambitious Ideas Into Scalable, Production-Ready Digital Products.",
+  websiteUrl: "https://neexg.com",
   thesis: [
-    "Software reaches its true leverage when it interacts with real-world physical systems, automates manual bottlenecks, and creates direct tangible value.",
-    "SystomeX represents an early-stage venture trajectory: developing practical robotics solutions, automated hardware kits, hands-on engineering education, and custom software systems."
+    "At NeexG, we build technology products that solve tangible business problems. From multi-tenant SaaS tools to high-conversion e-commerce engines, our mission is to deliver dependable, high-craft engineering for clients across Bangladesh and worldwide.",
+    "Driven by disciplined architecture, modern full-stack workflows, and founder-level accountability from initial scoping to cloud deployment."
   ],
   focusAreas: [
     {
-      title: "Applied Robotics & Hardware",
-      description: "Designing real-world embedded controllers, autonomous actuators, and smart telemetry kits for industrial & consumer use.",
-      badge: "Hardware Systems",
+      title: "SaaS & Web Platforms",
+      description: "Engineering multi-tenant platforms, subscription logic, automated data pipelines, and responsive web portals.",
+      badge: "SaaS Systems",
     },
     {
-      title: "Scalable Web & Cloud Platforms",
-      description: "Engineering robust full-stack software that powers hardware fleet management, e-commerce, and enterprise operational efficiency.",
-      badge: "Cloud & Web",
+      title: "E-Commerce & Digital Commerce",
+      description: "Crafting customized online storefronts, inventory syncing, and high-conversion payment workflows.",
+      badge: "Commerce",
     },
     {
-      title: "Tech Education & Knowledge Hub",
-      description: "Demystifying embedded programming, IoT, and full-stack development through practical, hands-on project builds.",
-      badge: "Knowledge",
+      title: "Embedded & Connected Systems",
+      description: "Prototyping physical-digital bridges, ESP32 microcontrollers, and real-time telemetry dashboards.",
+      badge: "IoT & Hardware",
     },
   ],
 };
