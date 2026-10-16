@@ -1,7 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { socialsData } from "@/data/socials";
+import { profileData } from "@/data/profile";
 import {
   Mail,
   Copy,
@@ -109,6 +111,30 @@ export function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Direct Channels */}
           <div className="lg:col-span-5 space-y-4">
+            {/* Direct Engineer & Founder Card */}
+            <div className="p-5 rounded-2xl bg-[#0F111A] border border-white/[0.08] flex items-center gap-4 shadow-sm">
+              <div className="relative w-14 h-14 rounded-2xl overflow-hidden border border-white/20 ring-2 ring-accent/30 shrink-0">
+                <Image
+                  src={profileData.image}
+                  alt={profileData.name}
+                  width={56}
+                  height={56}
+                  className="w-full h-full object-cover object-[center_28%]"
+                />
+                <span className="absolute bottom-1 right-1 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#0F111A]" />
+              </div>
+              <div className="space-y-0.5">
+                <div className="flex items-center gap-2">
+                  <h4 className="text-sm font-bold text-white font-display">{profileData.name}</h4>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    Online
+                  </span>
+                </div>
+                <p className="text-xs text-neutral-300">Direct Founder &amp; Engineer Access</p>
+                <p className="text-[11px] font-mono text-neutral-400">Response time: &lt; 24 hours</p>
+              </div>
+            </div>
+
             {/* Direct Email Card */}
             <div className="p-6 rounded-2xl bg-[#0F111A] border border-white/[0.08] space-y-4">
               <div>

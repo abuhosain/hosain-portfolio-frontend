@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { profileData } from "@/data/profile";
+import Image from "next/image";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -133,70 +134,135 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: Architectural Credentials & Proof */}
+          {/* Right Column: Portrait Showcase & Architectural Credentials */}
           <div className="lg:col-span-5 space-y-4">
-            {/* International Honors Card */}
+            {/* Signature Portrait Showcase Card */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: 0.2 }}
-              className="p-5 sm:p-6 rounded-2xl bg-[#0F111A] border border-white/[0.08] shadow-sm relative overflow-hidden"
+              initial={{ opacity: 0, scale: 0.96, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.35, delay: 0.2 }}
+              className="relative group"
             >
-              <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-accent mb-3">
-                <Award className="w-4 h-4" />
-                <span>Global Recognition</span>
-              </div>
-              <h2 className="text-base sm:text-lg font-bold text-white font-display">
-                Dual International Gold Medalist
-              </h2>
-              <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
-                Awarded top technical honors across competitive international innovation showcases.
-              </p>
+              {/* Subtle ambient backlight aura */}
+              <div
+                className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-accent/25 via-purple-600/15 to-accent/25 opacity-70 blur-xl group-hover:opacity-100 transition-opacity duration-700 pointer-events-none -z-10"
+                aria-hidden="true"
+              />
 
-              <div className="mt-4 pt-4 border-t border-white/[0.06] space-y-2.5">
-                <div className="flex items-center justify-between text-xs">
-                  <span className="font-semibold text-white">Innovation World Cup (IWC)</span>
-                  <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">
-                    Gold Medal
-                  </span>
-                </div>
-                <div className="flex items-center justify-between text-xs">
-                  <span className="font-semibold text-white">Invention &amp; Innovation Comp. (I3C)</span>
-                  <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">
-                    Gold Medal
-                  </span>
+              <div className="relative rounded-3xl border border-white/10 bg-[#0F111A]/90 backdrop-blur-md overflow-hidden p-2 sm:p-2.5 shadow-2xl">
+                {/* Image Frame */}
+                <div className="relative w-full h-72 sm:h-80 rounded-2xl overflow-hidden bg-black/40">
+                  <Image
+                    src={profileData.image}
+                    alt={`${profileData.name} - Software Engineer & Founder`}
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 480px"
+                    className="object-cover object-[center_28%] group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                  />
+
+                  {/* Gradient overlays for contrast & depth */}
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-[#090A0F] via-black/20 to-transparent pointer-events-none"
+                    aria-hidden="true"
+                  />
+                  <div
+                    className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none"
+                    aria-hidden="true"
+                  />
+
+                  {/* Top-left: Location & Availability Pill */}
+                  <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#090A0F]/85 backdrop-blur-md border border-white/10 text-xs font-mono text-neutral-200 shadow-md">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>Abu Hosain · Bangladesh</span>
+                  </div>
+
+                  {/* Top-right: Gold Medalist Pill */}
+                  <div className="absolute top-3 right-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-500/15 backdrop-blur-md border border-amber-500/30 text-amber-300 text-[11px] font-mono shadow-md">
+                    <Award className="w-3.5 h-3.5 text-amber-400" />
+                    <span>2x Gold Medalist</span>
+                  </div>
+
+                  {/* Bottom Bar: Name, Founder status, Specialty */}
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-2">
+                    <div className="px-3 py-1.5 rounded-xl bg-[#0F111A]/90 backdrop-blur-md border border-white/10 text-xs shadow-md">
+                      <div className="font-bold text-white font-display">Abu Hosain</div>
+                      <div className="text-[11px] font-mono text-accent">Founder @ NeexG</div>
+                    </div>
+                    <div className="px-3 py-1.5 rounded-xl bg-white/[0.06] backdrop-blur-md border border-white/10 text-right shadow-md">
+                      <div className="text-[10px] font-mono uppercase tracking-wider text-neutral-400">Focus</div>
+                      <div className="text-xs font-semibold text-neutral-200">Full-Stack &amp; AI</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Academic & Founder Credential Strip */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: 0.25 }}
-              className="p-5 sm:p-6 rounded-2xl bg-[#0F111A] border border-white/[0.08] shadow-sm"
-            >
-              <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-neutral-400 mb-3">
-                <GraduationCap className="w-4 h-4" />
-                <span>Education &amp; Roots</span>
-              </div>
-              <div className="space-y-1">
-                <div className="text-sm font-semibold text-white">
-                  Diploma in Computer Science &amp; Technology (CST)
+            {/* Credential Cards Grid: Dual Honors + Education */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {/* International Honors Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.25 }}
+                className="p-4 rounded-2xl bg-[#0F111A] border border-white/[0.08] shadow-sm flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-accent font-semibold">
+                      <Award className="w-3.5 h-3.5 text-accent" />
+                      <span>Recognition</span>
+                    </div>
+                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">
+                      2x Gold
+                    </span>
+                  </div>
+                  <h2 className="text-sm font-bold text-white font-display">
+                    Dual Gold Medalist
+                  </h2>
+                  <p className="text-[11px] text-neutral-400 mt-0.5 leading-snug">
+                    IWC &amp; I3C International Technical Honors
+                  </p>
                 </div>
-                <div className="text-xs font-mono text-neutral-400">
-                  Bogura Polytechnic Institute
+                <div className="mt-3 pt-2.5 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-neutral-400">
+                  <span>IWC · I3C</span>
+                  <span className="text-amber-300 font-semibold">World-Level</span>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="mt-4 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-neutral-400 font-mono">
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-accent" />
-                  <span>Foundations: C++, Data Structures, OS</span>
+              {/* Academic & Roots Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.3 }}
+                className="p-4 rounded-2xl bg-[#0F111A] border border-white/[0.08] shadow-sm flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-neutral-400 font-semibold">
+                      <GraduationCap className="w-3.5 h-3.5 text-accent" />
+                      <span>Education</span>
+                    </div>
+                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/[0.04] text-neutral-300 border border-white/[0.08]">
+                      CST
+                    </span>
+                  </div>
+                  <div className="text-sm font-bold text-white font-display leading-tight">
+                    Diploma in CST
+                  </div>
+                  <p className="text-[11px] text-neutral-400 mt-0.5 leading-snug">
+                    Bogura Polytechnic Institute
+                  </p>
                 </div>
-                <span>Bangladesh</span>
-              </div>
-            </motion.div>
+                <div className="mt-3 pt-2.5 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-neutral-400">
+                  <div className="flex items-center gap-1">
+                    <CheckCircle2 className="w-3 h-3 text-accent" />
+                    <span>Foundations</span>
+                  </div>
+                  <span>Bangladesh</span>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>

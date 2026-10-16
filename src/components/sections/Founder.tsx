@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { founderData } from "@/data/founder";
+import { profileData } from "@/data/profile";
 import { ArrowUpRight, Globe, CheckCircle2 } from "lucide-react";
 
 export function Founder() {
@@ -56,6 +58,33 @@ export function Founder() {
             {founderData.thesis.map((point, idx) => (
               <p key={idx}>{point}</p>
             ))}
+          </div>
+
+          {/* Founder Attribution Badge */}
+          <div className="pt-6 border-t border-white/[0.06] flex items-center justify-between flex-wrap gap-4">
+            <div className="flex items-center gap-3">
+              <div className="relative w-11 h-11 rounded-full overflow-hidden border border-white/20 ring-2 ring-accent/30 shrink-0">
+                <Image
+                  src={profileData.image}
+                  alt="Abu Hosain - Founder & CEO"
+                  width={44}
+                  height={44}
+                  className="w-full h-full object-cover object-[center_28%]"
+                />
+              </div>
+              <div>
+                <div className="text-sm font-semibold text-white font-display">
+                  {profileData.name}
+                </div>
+                <div className="text-[11px] font-mono text-neutral-400">
+                  Founder &amp; CEO, NeexG
+                </div>
+              </div>
+            </div>
+
+            <span className="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full">
+              Leadership &amp; Architecture
+            </span>
           </div>
         </div>
 

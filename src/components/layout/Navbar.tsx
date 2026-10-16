@@ -1,9 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight, FileText, Globe, ShoppingBag } from "lucide-react";
 import { ResumeModal } from "../modals/ResumeModal";
+import { profileData } from "@/data/profile";
 
 const NAV_ITEMS = [
   { label: "About", href: "#about" },
@@ -68,10 +70,19 @@ export function Navbar() {
           {/* Brand identifier */}
           <a
             href="#"
-            className="flex items-center gap-2.5 text-white hover:text-white/90 transition-colors group min-h-[44px]"
+            className="flex items-center gap-3 text-white hover:text-white/90 transition-colors group min-h-[44px]"
             aria-label="Abu Hosain - Home"
           >
-            <span className="w-2 h-2 rounded-full bg-accent" />
+            <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-white/20 ring-2 ring-accent/30 group-hover:ring-accent transition-all shrink-0">
+              <Image
+                src={profileData.image}
+                alt={profileData.name}
+                width={36}
+                height={36}
+                className="w-full h-full object-cover object-[center_28%] group-hover:scale-110 transition-transform duration-300"
+              />
+              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#090A0F]" />
+            </div>
             <div className="flex flex-col">
               <span className="font-display font-bold text-sm tracking-tight text-white group-hover:text-accent transition-colors">
                 Abu Hosain
@@ -195,6 +206,28 @@ export function Navbar() {
               className="fixed inset-x-0 top-[62px] z-50 bg-[#090A0F]/98 border-b border-white/10 p-6 shadow-2xl md:hidden max-h-[calc(100dvh-62px)] overflow-y-auto"
             >
               <div className="flex flex-col gap-2 max-w-md mx-auto">
+                {/* Mobile Drawer Profile Header */}
+                <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/[0.03] border border-white/[0.08] mb-2">
+                  <div className="relative w-11 h-11 rounded-full overflow-hidden border border-white/20 ring-2 ring-accent/30 shrink-0">
+                    <Image
+                      src={profileData.image}
+                      alt={profileData.name}
+                      width={44}
+                      height={44}
+                      className="w-full h-full object-cover object-[center_28%]"
+                    />
+                    <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#090A0F]" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-bold text-sm text-white truncate font-display">
+                      {profileData.name}
+                    </div>
+                    <div className="text-[11px] text-neutral-400 font-mono truncate">
+                      Founder @ NeexG · Software Engineer
+                    </div>
+                  </div>
+                </div>
+
                 {NAV_ITEMS.map((item) => (
                   <a
                     key={item.label}

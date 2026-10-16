@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { profileData } from "@/data/profile";
 import { Award, GraduationCap, ArrowUpRight, Code2, Palette, Cpu, CheckCircle2, ShoppingBag } from "lucide-react";
 
@@ -37,7 +38,37 @@ export function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
           {/* Left Column: Polished Narrative */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="p-6 sm:p-8 rounded-2xl bg-[#0F111A] border border-white/[0.08] space-y-4 shadow-sm">
+            <div className="p-6 sm:p-8 rounded-2xl bg-[#0F111A] border border-white/[0.08] space-y-5 shadow-sm">
+              {/* Profile Intro Bar with Photo */}
+              <div className="flex items-center gap-4 pb-5 border-b border-white/[0.06]">
+                <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-2xl overflow-hidden border border-white/10 ring-2 ring-accent/25 shrink-0 shadow-lg">
+                  <Image
+                    src={profileData.image}
+                    alt={profileData.name}
+                    fill
+                    sizes="80px"
+                    className="object-cover object-[center_28%]"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h3 className="text-lg sm:text-xl font-bold text-white font-display">
+                      {profileData.name}
+                    </h3>
+                    <span className="px-2 py-0.5 rounded-full text-[11px] font-mono bg-accent/10 border border-accent/20 text-accent font-semibold">
+                      Founder &amp; CEO
+                    </span>
+                  </div>
+                  <p className="text-xs text-neutral-400 font-mono">
+                    Full-Stack Software Engineer · Branding &amp; AI Automation
+                  </p>
+                  <div className="flex items-center gap-1.5 pt-0.5 text-xs text-emerald-400 font-mono">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>Based in Bangladesh · Open for Global Projects</span>
+                  </div>
+                </div>
+              </div>
+
               <div className="flex flex-wrap items-center gap-2">
                 <span className="px-2.5 py-0.5 rounded-full text-xs font-mono bg-accent/10 border border-accent/20 text-accent font-semibold">
                   Founder &amp; CEO · NeexG

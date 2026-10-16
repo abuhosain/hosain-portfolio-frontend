@@ -1,5 +1,6 @@
 import React from "react";
 import { projectsData } from "@/data/projects";
+import { profileData } from "@/data/profile";
 
 export function StructuredData() {
   const personSchema = {
@@ -8,7 +9,7 @@ export function StructuredData() {
     name: "Abu Hosain",
     alternateName: "Abu Hosain (Hosain)",
     url: "https://abuhosain.dev",
-    image: "https://abuhosain.dev/og-image.png",
+    image: profileData.image,
     jobTitle: "Software Engineer",
     description:
       "Full-stack software engineer, founder of NeexG and co-founder of Oregent, specializing in web apps, SaaS products, branding, AI automation (n8n, Zapier) and video editing.",

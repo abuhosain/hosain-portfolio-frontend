@@ -14,6 +14,8 @@ export interface EducationItem {
 export interface ProfileData {
   name: string;
   shortName: string;
+  image: string;
+  avatar: string;
   headline: string;
   mobileHeadline: string;
   tagline: string;
@@ -43,6 +45,8 @@ export interface ProfileData {
 export const profileData: ProfileData = {
   name: "Abu Hosain",
   shortName: "Hosain",
+  image: "https://res.cloudinary.com/djqyb52xi/image/upload/v1760463479/IMG_20250716_002919_chcmji.jpg",
+  avatar: "/images/abu-hosain.jpg",
   headline: "Software Engineer · Branding · AI Automation · Founder of NeexG · Co-Founder of Oregent",
   mobileHeadline: "Software Engineer · Founder of NeexG & Oregent",
   tagline: "Software Engineer, Branding & AI Automation",
