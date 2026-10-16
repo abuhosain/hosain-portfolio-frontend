@@ -15,11 +15,11 @@ export function Experience() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-display">
-            Engineering Scope &amp; Architectural Ownership
+            Production Engineering &amp; Founder Experience
           </h2>
           <p className="text-sm text-neutral-400 leading-relaxed max-w-prose">
-            Hands-on technical leadership, client delivery, and full-stack software architecture
-            across SaaS platforms and scalable web products.
+            Abu Hosain&apos;s hands-on technical leadership, client delivery, and full-stack software architecture
+            across SaaS platforms, automated systems, and scalable web products.
           </p>
         </div>
 

@@ -18,7 +18,7 @@ export function Ventures() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-display">
-            Startups &amp; Co-Founded Ventures
+            Startups &amp; Co-Founded Ventures by Abu Hosain
           </h2>
           <p className="text-sm text-neutral-400 leading-relaxed max-w-prose">
             The companies I build, lead, and co-founded. From client engineering and AI automations to brand-first consumer commerce.

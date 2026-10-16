@@ -82,3 +82,15 @@ export const automationFlowNodes = [
   { step: 4, title: "WhatsApp / Email", desc: "Sends instant trigger alert", icon: "MessageSquare" },
   { step: 5, title: "CRM & Analytics", desc: "Auto-creates deal & syncs pipeline", icon: "Database" },
 ];
+
+export const featuredBrandVideo = {
+  id: "LoJwG46SSbk",
+  title: "AI Commercial l NeexG — Making Your Vision Unstoppable",
+  author: "Hosainfo",
+  category: "AI Commercial · Brand Promo",
+  embedUrl: "https://www.youtube.com/embed/LoJwG46SSbk?si=92GXbJRNFr4s2LF7&autoplay=1&rel=0",
+  youtubeUrl: "https://www.youtube.com/watch?v=LoJwG46SSbk",
+  thumbnail: "https://i.ytimg.com/vi/LoJwG46SSbk/maxresdefault.jpg",
+  thumbnailFallback: "https://i.ytimg.com/vi/LoJwG46SSbk/hqdefault.jpg",
+  description: "Official AI commercial engineered for NeexG. Cinematic AI visuals, dynamic pacing, and commercial-grade brand storytelling.",
+};

@@ -39,7 +39,7 @@ export function Projects() {
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-display">
-              Production Applications &amp; Client Platforms
+              Featured Software Projects &amp; Platforms by Abu Hosain
             </h2>
             <p className="text-sm text-neutral-400 leading-relaxed max-w-prose">
               A curated catalog of live SaaS platforms, multi-tenant engines, e-commerce brands,

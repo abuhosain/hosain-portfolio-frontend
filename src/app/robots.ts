@@ -5,8 +5,16 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/api/", "/dashboard/"],
+      disallow: [
+        "/api/",
+        "/dashboard/",
+        "/login/",
+        "/login",
+        "/signup/",
+        "/signup",
+      ],
     },
     sitemap: "https://abuhosain.dev/sitemap.xml",
+    host: "https://abuhosain.dev",
   };
 }

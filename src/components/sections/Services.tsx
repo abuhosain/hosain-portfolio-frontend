@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   Code2,
   Palette,
@@ -17,8 +18,15 @@ import {
   Database,
   Play,
   ExternalLink,
+  RotateCcw,
+  Sparkles,
 } from "lucide-react";
-import { servicesData, brandBuildAutomateSteps, automationFlowNodes } from "@/data/services";
+import {
+  servicesData,
+  brandBuildAutomateSteps,
+  automationFlowNodes,
+  featuredBrandVideo,
+} from "@/data/services";
 
 export function Services() {
   const [isPlayingVideo, setIsPlayingVideo] = useState(false);
@@ -263,54 +271,152 @@ export function Services() {
         </div>
 
         {/* 4. Video Showcase Facade (YouTube @hosainfo) */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-[#0F111A] border border-white/[0.08] flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="max-w-md space-y-3">
-            <div className="flex items-center gap-2">
-              <Video className="w-4 h-4 text-red-400" />
-              <span className="text-xs font-mono uppercase tracking-wider text-red-400 font-semibold">
-                Content &amp; Video Production
+        <div className="p-6 sm:p-8 rounded-3xl bg-[#0F111A] border border-white/[0.08] flex flex-col lg:flex-row items-center justify-between gap-8 shadow-sm">
+          <div className="max-w-xl space-y-4">
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="flex items-center gap-2">
+                <Video className="w-4 h-4 text-red-400" />
+                <span className="text-xs font-mono uppercase tracking-wider text-red-400 font-semibold">
+                  Content &amp; Video Production
+                </span>
+              </div>
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-red-500/10 text-red-300 border border-red-500/20">
+                Official Commercial
               </span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-white font-display">
+
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white font-display">
               Short-Form Content &amp; Brand Promo Videos
             </h3>
+
             <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed">
-              Producing high-retention promo reels, product walkthroughs, and explainer videos on YouTube (@hosainfo) to bring brand stories to life.
+              Producing high-retention promo reels, commercial video ads, and dynamic explainer videos to bring brand stories to life. Featured here: the official AI Commercial engineered for NeexG.
             </p>
-            <div className="pt-2">
+
+            {/* Content Capabilities Pills */}
+            <div className="flex flex-wrap items-center gap-2 pt-1">
+              <span className="px-3 py-1 rounded-xl text-xs font-mono text-neutral-300 bg-white/[0.03] border border-white/[0.06]">
+                AI Commercials
+              </span>
+              <span className="px-3 py-1 rounded-xl text-xs font-mono text-neutral-300 bg-white/[0.03] border border-white/[0.06]">
+                Short-Form Reels &amp; Shorts
+              </span>
+              <span className="px-3 py-1 rounded-xl text-xs font-mono text-neutral-300 bg-white/[0.03] border border-white/[0.06]">
+                Sound &amp; Motion Design
+              </span>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <button
+                onClick={() => setIsPlayingVideo(!isPlayingVideo)}
+                className="inline-flex items-center gap-2 px-5 py-2.5 min-h-[44px] rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs sm:text-sm font-semibold transition-colors shadow-lg shadow-red-600/20"
+              >
+                <Play className="w-4 h-4 fill-white" />
+                <span>{isPlayingVideo ? "Hide Video Player" : "Watch Commercial"}</span>
+              </button>
+
               <a
-                href="https://youtube.com/@hosainfo"
+                href={featuredBrandVideo.youtubeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-xl bg-red-600/10 hover:bg-red-600/20 text-red-400 border border-red-600/20 text-xs sm:text-sm font-semibold transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-neutral-300 hover:text-white border border-white/[0.08] text-xs sm:text-sm font-medium transition-colors"
+                aria-label="Visit YouTube channel @hosainfo"
               >
-                <span>Visit Channel (@hosainfo)</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <span>YouTube (@hosainfo)</span>
+                <ExternalLink className="w-3.5 h-3.5 text-neutral-400" />
               </a>
             </div>
           </div>
 
-          {/* Facade Box */}
-          <div className="w-full md:w-[380px] aspect-video rounded-2xl bg-[#161928] border border-white/10 relative overflow-hidden flex flex-col items-center justify-center text-center p-6 group">
+          {/* Interactive Player Frame */}
+          <div className="w-full lg:w-[480px] xl:w-[520px] aspect-video rounded-2xl bg-[#090A0F] border border-white/10 relative overflow-hidden shadow-2xl group shrink-0">
+            {/* Subtle ambient backlight aura */}
+            <div
+              className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-red-600/25 via-accent/15 to-red-600/25 blur-xl opacity-60 group-hover:opacity-100 transition-opacity -z-10 pointer-events-none"
+              aria-hidden="true"
+            />
+
             {isPlayingVideo ? (
-              <iframe
-                className="w-full h-full rounded-2xl"
-                src="https://www.youtube-nocookie.com/embed?listType=user_uploads&list=hosainfo&autoplay=1"
-                title="Abu Hosain YouTube Videos"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+              <div className="relative w-full h-full">
+                <iframe
+                  className="w-full h-full rounded-2xl border-0"
+                  src={featuredBrandVideo.embedUrl}
+                  title={featuredBrandVideo.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+                <button
+                  onClick={() => setIsPlayingVideo(false)}
+                  className="absolute top-3 right-3 px-2.5 py-1 rounded-lg bg-black/85 hover:bg-black text-white text-[11px] font-mono border border-white/20 backdrop-blur-md flex items-center gap-1.5 transition-colors shadow-lg z-10"
+                  title="Close Video"
+                >
+                  <RotateCcw className="w-3 h-3" />
+                  <span>Close</span>
+                </button>
+              </div>
             ) : (
               <div
                 onClick={() => setIsPlayingVideo(true)}
-                className="w-full h-full flex flex-col items-center justify-center cursor-pointer space-y-3"
+                className="relative w-full h-full cursor-pointer overflow-hidden"
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    setIsPlayingVideo(true);
+                  }
+                }}
+                aria-label={`Play video: ${featuredBrandVideo.title}`}
               >
-                <div className="w-14 h-14 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                  <Play className="w-6 h-6 fill-white ml-0.5" />
+                {/* Thumbnail Image */}
+                <Image
+                  src={featuredBrandVideo.thumbnail}
+                  alt={featuredBrandVideo.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 540px"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+
+                {/* Dark Scrim Overlay */}
+                <div
+                  className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/25 group-hover:via-black/30 transition-colors pointer-events-none"
+                  aria-hidden="true"
+                />
+
+                {/* Top Badge: Category & Resolution */}
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/10 text-xs font-mono text-white shadow-md">
+                    <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                    <span>NeexG · AI Commercial</span>
+                  </div>
+                  <span className="px-2 py-0.5 rounded-md bg-black/75 backdrop-blur-md border border-white/10 text-[10px] font-mono text-neutral-300">
+                    HD · Stereo
+                  </span>
                 </div>
-                <div>
-                  <div className="text-xs font-bold text-white">Click to Watch Production Reels</div>
-                  <div className="text-[11px] font-mono text-neutral-400 mt-0.5">YouTube @hosainfo</div>
+
+                {/* Center Animated Play Button */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="relative">
+                    <div className="absolute -inset-3 rounded-full bg-red-600/30 animate-ping" />
+                    <div className="w-16 h-16 rounded-full bg-red-600 group-hover:bg-red-500 text-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-all duration-300 ring-4 ring-white/20">
+                      <Play className="w-7 h-7 fill-white ml-1" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Bar: Title & Channel Tag */}
+                <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-black/80 backdrop-blur-md border border-white/10 flex items-center justify-between gap-3 pointer-events-none">
+                  <div className="min-w-0">
+                    <div className="text-xs sm:text-sm font-bold text-white truncate font-display">
+                      NeexG — Making Your Vision Unstoppable
+                    </div>
+                    <div className="text-[11px] font-mono text-neutral-400 truncate">
+                      Commercial Brand Video · YouTube @hosainfo
+                    </div>
+                  </div>
+                  <span className="hidden sm:inline-block px-2 py-1 rounded text-[10px] font-mono bg-red-500/20 text-red-300 border border-red-500/30 font-semibold shrink-0">
+                    Watch
+                  </span>
                 </div>
               </div>
             )}

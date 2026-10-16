@@ -101,10 +101,10 @@ export function Contact() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-display">
-            Let&apos;s Build Something Meaningful Together
+            Contact Abu Hosain — Let&apos;s Build Something Meaningful Together
           </h2>
           <p className="text-sm text-neutral-400 leading-relaxed max-w-prose">
-            Whether you want to build a new SaaS product, automate team workflows with n8n/Zapier, scale an e-commerce platform, or create high-retention video content, reach out directly.
+            Whether you want to build a new SaaS product, automate team workflows with n8n/Zapier, scale an e-commerce platform, or consult on technical architecture, get in touch with Abu Hosain directly.
           </p>
         </div>
 

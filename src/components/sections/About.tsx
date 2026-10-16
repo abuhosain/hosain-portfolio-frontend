@@ -30,7 +30,7 @@ export function About() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-display">
-            Engineering Web Systems with Craft &amp; Founder Execution
+            About Abu Hosain — Engineering Web Systems with Craft &amp; Founder Execution
           </h2>
         </div>
 

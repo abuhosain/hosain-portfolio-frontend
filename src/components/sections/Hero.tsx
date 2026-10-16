@@ -39,55 +39,53 @@ export function Hero() {
               transition={{ duration: 0.3, delay: 0.05 }}
               className="space-y-3"
             >
-              <h1 className="space-y-2">
-                <span className="block text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08] font-display">
-                  Abu Hosain
-                </span>
-
-                {/* Mobile Headline (compact) */}
-                <span className="block sm:hidden text-lg font-semibold text-neutral-200 tracking-tight font-display leading-snug">
-                  Software Engineer · Founder of{" "}
-                  <a
-                    href="https://neexg.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white underline underline-offset-4 decoration-accent/60"
-                  >
-                    NeexG
-                  </a>{" "}
-                  &amp; Co-Founder of{" "}
-                  <a
-                    href="https://oregent.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white underline underline-offset-4 decoration-accent/60"
-                  >
-                    Oregent
-                  </a>
-                </span>
-
-                {/* Desktop Headline (full) */}
-                <span className="hidden sm:block text-xl sm:text-2xl font-semibold text-neutral-300 tracking-tight font-display leading-snug">
-                  Software Engineer · Branding · AI Automation · Founder of{" "}
-                  <a
-                    href="https://neexg.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white hover:text-accent underline underline-offset-4 decoration-accent/60 transition-colors"
-                  >
-                    NeexG
-                  </a>{" "}
-                  · Co-Founder of{" "}
-                  <a
-                    href="https://oregent.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white hover:text-accent underline underline-offset-4 decoration-accent/60 transition-colors"
-                  >
-                    Oregent
-                  </a>
-                </span>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08] font-display">
+                Abu Hosain
               </h1>
+
+              {/* Mobile Headline (compact) */}
+              <p className="block sm:hidden text-lg font-semibold text-neutral-200 tracking-tight font-display leading-snug">
+                Software Engineer · Founder of{" "}
+                <a
+                  href="https://neexg.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white underline underline-offset-4 decoration-accent/60"
+                >
+                  NeexG
+                </a>{" "}
+                &amp; Co-Founder of{" "}
+                <a
+                  href="https://oregent.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white underline underline-offset-4 decoration-accent/60"
+                >
+                  Oregent
+                </a>
+              </p>
+
+              {/* Desktop Headline (full) */}
+              <p className="hidden sm:block text-xl sm:text-2xl font-semibold text-neutral-300 tracking-tight font-display leading-snug">
+                Software Engineer · Founder &amp; Brand Builder · Founder of{" "}
+                <a
+                  href="https://neexg.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-accent underline underline-offset-4 decoration-accent/60 transition-colors"
+                >
+                  NeexG
+                </a>{" "}
+                · Co-Founder of{" "}
+                <a
+                  href="https://oregent.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-accent underline underline-offset-4 decoration-accent/60 transition-colors"
+                >
+                  Oregent
+                </a>
+              </p>
             </motion.div>
 
             {/* Polished bio */}
@@ -217,9 +215,9 @@ export function Hero() {
                       2x Gold
                     </span>
                   </div>
-                  <h2 className="text-sm font-bold text-white font-display">
+                  <h3 className="text-sm font-bold text-white font-display">
                     Dual Gold Medalist
-                  </h2>
+                  </h3>
                   <p className="text-[11px] text-neutral-400 mt-0.5 leading-snug">
                     IWC &amp; I3C International Technical Honors
                   </p>

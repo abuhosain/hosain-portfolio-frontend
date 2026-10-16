@@ -6,13 +6,13 @@ export function StructuredData() {
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://abuhosain.dev/#person",
     name: "Abu Hosain",
     alternateName: "Abu Hosain (Hosain)",
-    url: "https://abuhosain.dev",
+    url: "https://abuhosain.dev/",
     image: profileData.image,
     jobTitle: "Software Engineer",
-    description:
-      "Full-stack software engineer, founder of NeexG and co-founder of Oregent, specializing in web apps, SaaS products, branding, AI automation (n8n, Zapier) and video editing.",
+    description: "Software Engineer, Startup Founder and Brand Builder",
     email: "mailto:abuhosainmin@gmail.com",
     telephone: "+8801319539510",
     nationality: {
@@ -108,14 +108,20 @@ export function StructuredData() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Abu Hosain Portfolio",
-    url: "https://abuhosain.dev",
+    "@id": "https://abuhosain.dev/#website",
+    name: "Abu Hosain",
+    alternateName: "Abu Hosain Portfolio",
+    url: "https://abuhosain.dev/",
+    description:
+      "Abu Hosain is a Software Engineer, Startup Founder and Brand Builder. Explore his projects, technology expertise and digital innovations.",
     author: {
       "@type": "Person",
       name: "Abu Hosain",
     },
-    description:
-      "Official portfolio and engineering catalog of Abu Hosain — Software Engineer, Founder of NeexG, and Co-Founder of Oregent.",
+    publisher: {
+      "@type": "Person",
+      name: "Abu Hosain",
+    },
   };
 
   const servicesSchema = {
