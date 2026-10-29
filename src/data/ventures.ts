@@ -23,6 +23,17 @@ export const venturesData: VentureItem[] = [
     accentColor: "#2563EB",
   },
   {
+    id: "systomex",
+    name: "Systomex",
+    role: "Founder",
+    badge: "Bulk Email Sender & SaaS",
+    tagline: "High-volume bulk email sending and marketing delivery platform.",
+    brief: "A high-performance bulk email sender engineered for automated bulk email marketing campaigns, cold outreach delivery, and contact list segmentation.",
+    link: "https://systomex.com",
+    tags: ["Bulk Email Sender", "Deliverability & SMTP", "Cold Outreach", "Email Marketing SaaS"],
+    accentColor: "#059669",
+  },
+  {
     id: "oregent",
     name: "Oregent",
     role: "Co-Founder",

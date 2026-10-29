@@ -16,6 +16,7 @@ export const socialsData: {
   phoneTel: string;
   ventures: {
     neexg: { name: string; url: string; role: string };
+    systomex?: { name: string; url: string; role: string };
     oregent: { name: string; url: string; role: string };
   };
   location: string;
@@ -30,6 +31,11 @@ export const socialsData: {
       name: "NeexG",
       url: "https://neexg.com",
       role: "Founder & CEO",
+    },
+    systomex: {
+      name: "Systomex",
+      url: "https://systomex.com",
+      role: "Founder",
     },
     oregent: {
       name: "Oregent",
@@ -103,6 +109,15 @@ export const socialsData: {
       handle: "neexg.com",
       icon: "Globe",
       ariaLabel: "Visit NeexG agency website (Founder & CEO)",
+      primary: true,
+    },
+    {
+      platform: "Systomex",
+      label: "Systomex",
+      url: "https://systomex.com",
+      handle: "systomex.com",
+      icon: "Mail",
+      ariaLabel: "Visit Systomex bulk email marketing platform (Founder)",
       primary: true,
     },
     {

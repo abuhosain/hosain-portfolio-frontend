@@ -58,6 +58,24 @@ h1, h2, h3, h4, .font-display {
   letter-spacing: -0.025em;
 }
 
+/* Scoped Bengali Typographic Engine */
+[lang="bn"], .font-bengali {
+  font-family: var(--font-hind-siliguri), system-ui, -apple-system, sans-serif;
+}
+
+[lang="bn"] h1, [lang="bn"] h2, [lang="bn"] h3, [lang="bn"] h4,
+.font-bengali h1, .font-bengali h2, .font-bengali h3, .font-bengali h4 {
+  letter-spacing: 0 !important;
+  line-height: 1.35;
+}
+
+[lang="bn"] p, [lang="bn"] .prose-readable,
+.font-bengali p, .font-bengali .prose-readable {
+  line-height: 1.8;
+  letter-spacing: 0;
+  max-width: 58ch;
+}
+
 /* Custom minimal scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

@@ -28,6 +28,7 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "-apple-system", "sans-serif"],
         display: ["var(--font-display)", "var(--font-inter)", "sans-serif"],
+        bengali: ["var(--font-hind-siliguri)", "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
       },
       lineHeight: {

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, Hind_Siliguri } from "next/font/google";
 import "@/app/globals.css";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -22,6 +22,13 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   display: "swap",
   weight: ["500", "600", "700", "800"],
+});
+
+const hindSiliguri = Hind_Siliguri({
+  variable: "--font-hind-siliguri",
+  subsets: ["bengali"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const viewport: Viewport = {
@@ -127,7 +134,7 @@ export default async function RootLayout({
         <StructuredData />
       </head>
       <body
-        className={`${inter.variable} ${plusJakartaSans.variable} font-sans bg-[#090A0F] text-[#EDEDEF] antialiased selection:bg-accent/20 selection:text-accent`}
+        className={`${inter.variable} ${plusJakartaSans.variable} ${hindSiliguri.variable} font-sans bg-[#090A0F] text-[#EDEDEF] antialiased selection:bg-accent/20 selection:text-accent`}
       >
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>

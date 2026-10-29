@@ -5,7 +5,8 @@ import { ArrowUpRight, ExternalLink, Globe, ShoppingBag, Sparkles, ShieldCheck }
 import { venturesData } from "@/data/ventures";
 
 export function Ventures() {
-  const [neexg, oregent] = venturesData;
+  const neexg = venturesData.find((v) => v.id === "neexg") || venturesData[0];
+  const oregent = venturesData.find((v) => v.id === "oregent") || venturesData[1];
 
   return (
     <section id="ventures" className="py-20 sm:py-24 border-t border-white/[0.08] bg-[#0A0C14]">
