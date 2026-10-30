@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Plus_Jakarta_Sans, Hind_Siliguri } from "next/font/google";
 import "@/app/globals.css";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -10,26 +9,6 @@ import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { CommandPalette } from "@/components/layout/CommandPalette";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { StructuredData } from "@/components/seo/StructuredData";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-display",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["500", "600", "700", "800"],
-});
-
-const hindSiliguri = Hind_Siliguri({
-  variable: "--font-hind-siliguri",
-  subsets: ["bengali"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
 
 export const viewport: Viewport = {
   themeColor: "#090A0F",
@@ -131,10 +110,16 @@ export default async function RootLayout({
   return (
     <html lang={locale} className="dark" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+        />
         <StructuredData />
       </head>
       <body
-        className={`${inter.variable} ${plusJakartaSans.variable} ${hindSiliguri.variable} font-sans bg-[#090A0F] text-[#EDEDEF] antialiased selection:bg-accent/20 selection:text-accent`}
+        className="font-sans bg-[#090A0F] text-[#EDEDEF] antialiased selection:bg-accent/20 selection:text-accent"
       >
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>

@@ -22,6 +22,11 @@
   --accent-hover: #2563EB;
   --accent-tint: rgba(59, 130, 246, 0.08);
   --accent-glow: rgba(59, 130, 246, 0.25);
+
+  /* Typography Variables */
+  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', var(--font-inter), sans-serif;
+  --font-hind-siliguri: 'Hind Siliguri', 'Inter', sans-serif;
 }
 
 * {
